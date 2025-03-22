@@ -53,7 +53,7 @@ public class ProgramRequest {
         	program_POJO.setEndpoint(testData.get("Endpoint"));  // Set endpoint in user_POJO
         } else {
         	String ProgramPost = enumPackage.Endpoint.Program_POST.getPath();
-        	program_POJO.setEndpoint(ProgramPost); // Default endpoint from config
+        	program_POJO.setEndpoint(ProgramPost); 
         }
     }
 

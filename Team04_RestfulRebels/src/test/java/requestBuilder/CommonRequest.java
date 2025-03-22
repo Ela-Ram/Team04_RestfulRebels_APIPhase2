@@ -3,6 +3,7 @@ package requestBuilder;
 	
 
 import common.ConfigReader;
+import common.TestContext;
 import common.Utils;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
@@ -20,13 +21,10 @@ public class CommonRequest {
     private RequestSpecification requestspecification;
     private Response response;
     
-   
 
     
-    
-    
     public RequestSpecification basewithValidauth() {
-        String token = Utils.get("authToken", String.class); // Retrieve token
+       String token = Utils.get("authToken", String.class); // Retrieve token
         if (token == null || token.isEmpty()) {
             throw new IllegalStateException("Token is null or empty");
         }
@@ -35,6 +33,7 @@ public class CommonRequest {
                 .header("Authorization", "Bearer " + token)
                 .header("Accept", "application/json")
                 .contentType("application/json");
+        	
     }
 
     // Call this function for requests without authentication
