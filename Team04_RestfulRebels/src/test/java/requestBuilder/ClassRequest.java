@@ -47,7 +47,7 @@ public class ClassRequest {
 		        class_POJO.setBatchId(Integer.parseInt(testData.get("batchId")));
 		    }
 		  //  class_POJO.setClassNo((int) Double.parseDouble(testData.get("classNo")));
-		    class_POJO.setClassNo(testData.get("classNo"));
+		  //  class_POJO.setClassNo(testData.get("classNo"));
 		    class_POJO.setClassDate(testData.get("classDate"));
 		    class_POJO.setClassTopic(testData.get("classTopic"));
 		    class_POJO.setClassStatus(testData.get("classStatus"));
