@@ -1,0 +1,126 @@
+package requestBuilder;
+
+
+	
+	import common.ConfigReader;
+	import common.ExcelReader;
+import common.Utils;
+import io.restassured.RestAssured;
+	import io.restassured.response.Response;
+	import io.restassured.specification.RequestSpecification;
+	import lombok.Getter;
+	import lombok.Setter;
+	import payload.Login_POJO;
+	import static io.restassured.RestAssured.*;
+	import static io.restassured.matcher.RestAssuredMatchers.*;
+	import static org.hamcrest.Matchers.*;
+	import static io.restassured.RestAssured.given;
+	import java.io.IOException;
+	import java.util.Map;
+
+	@Getter
+	@Setter
+	public class LoginRequest {
+	
+
+	    private Login_POJO login_POJO;  
+	    private RequestSpecification requestspecification;
+	    private Response response;
+	 
+	    
+	 
+
+	    // Constructor that accepts testContext as a parameter
+	    public LoginRequest() {
+	 
+	      
+	        this.login_POJO = new Login_POJO();
+	    }
+	    
+	    
+
+
+	 /*   public void setCredentials(String sheetName, String testCaseID) throws IOException {
+	        // Read authType from Excel (valid/invalid)
+	        Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	        String authType = testData.get("authType");
+
+	        if ("valid".equalsIgnoreCase(authType)) {
+	            login_POJO.setUserLoginEmailId(ConfigReader.getProperty("email"));
+	            login_POJO.setPassword(ConfigReader.getProperty("password"));
+	        } else {
+	            login_POJO.setUserLoginEmailId(testData.get("username"));
+	            login_POJO.setPassword(testData.get("password"));
+	        }
+	    }
+
+	    public Login_POJO getLoginRequestBody() {  
+	        return login_POJO;
+	    }*/
+
+	    // Set endpoint
+	    public void setEndpoint(String sheetName, String testCaseID) throws IOException {
+	        Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+
+	        if ("invalid Endpoint".equalsIgnoreCase(testData.get("usecase"))) {
+	            login_POJO.setEndpoint(testData.get("Endpoint"));  // Set endpoint in login_POJO
+	        } else {
+	        	
+	        	String loginPost = enumPackage.Endpoint.Login_POST.getPath(); 
+	        	login_POJO.setEndpoint(loginPost); // Default endpoint from config
+	        }
+	    }
+
+	    // Get the endpoint from login_POJO
+	    public String getEndpoint() {
+	        return login_POJO.getEndpoint();  // Return endpoint from login_POJO
+	    }
+
+	    // Post Request with logging of endpoint and request body
+	    public void loginPost(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
+	        setCredentials(sheetName, testCaseID);
+	        setEndpoint(sheetName, testCaseID);
+
+	        // Making the POST request
+	        response = given()
+	            .spec(requestSpecification)
+	            .body(getLoginRequestBody())  
+	            .when()
+	            .post(getEndpoint())
+	            .then()
+	            .extract()
+	            .response();
+
+	        System.out.println("****** Request Body: " + login_POJO);
+	        System.out.println("****** Response: " + response.prettyPrint());
+	        System.out.println("****** Status Code: " + response.getStatusCode());
+
+	        // Check if response content type is JSON before extracting the token
+	        if (response.getContentType() != null && response.getContentType().contains("application/json")) {
+	            // Handle token extraction if present
+	            String token = response.jsonPath().getString("token");  // Adjust the token path based on your API response
+	        	
+
+	            if (token != null && !token.isEmpty()) {
+	              //	ConfigReader.setProperty("auth_token", token);
+	            	Utils.set("authToken", token);
+	                System.out.println("Token stored successfully: " + token);
+	            } else {
+	                System.out.println("Token is missing in the response.");
+	            }
+	        } else {
+	            System.out.println("Response is not in JSON format. Received: " + response.getBody().asString());
+	        }
+	    }
+	    
+	    
+	    public RequestSpecification setRequestSpecification() {
+	        return given()
+	                .baseUri(ConfigReader.getProperty("Base_Url"))
+	                .header("Accept", "application/json")
+	                .contentType("application/json");
+	    }   
+	  
+	    
+
+}

@@ -1,0 +1,33 @@
+package common;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class SingletonDataStore {
+	
+	 private static SingletonDataStore instance;
+	    private Map<String, Object> dataStore;
+
+	    private SingletonDataStore() {
+	        dataStore = new HashMap<>();
+	    }
+
+	    // Ensure only one instance is created
+	    public static SingletonDataStore getInstance() {
+	        if (instance == null) {
+	            instance = new SingletonDataStore();
+	        }
+	        return instance;
+	    }
+
+	    // Store data
+	    public void set(String key, Object value) {
+	        dataStore.put(key, value);
+	    }
+
+	    // Retrieve data
+	    public Object get(String key) {
+	        return dataStore.get(key);
+	    }
+
+}

@@ -1,0 +1,47 @@
+package requestBuilder;
+
+import java.io.IOException;
+import java.util.Map;
+
+import common.ConfigReader;
+import common.ExcelReader;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import lombok.Getter;
+import lombok.Setter;
+import payload.Class_POJO;
+
+@Getter
+@Setter
+public class ClassRequest {
+	 private Class_POJO class_POJO;  
+	    private RequestSpecification requestspecification;
+	    private Response response;
+	
+	public ClassRequest() {
+        this.class_POJO = new Class_POJO();
+    }
+	
+	
+	public void classPostRequestbody(String sheetName, String testCaseID) throws IOException {
+        Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+        String usecase = testData.get("usecase");
+
+        if ("valid".equalsIgnoreCase(usecase)) {
+        	class_POJO.setBatchId(1234); //set stored batchId
+        }
+        	else {
+        		//int batchId = Integer.parseInt(testData.get("batchId"));
+        		class_POJO.setBatchId(Integer.parseInt(testData.get("batchId")));
+        	}
+        
+        	class_POJO.setClassNo(Integer.parseInt(testData.get("classNo")));
+        	class_POJO.setClassDate(testData.get("classDate"));
+        	class_POJO.setClassTopic(testData.get("classTopic"));
+        
+    }
+
+	
+	
+
+}

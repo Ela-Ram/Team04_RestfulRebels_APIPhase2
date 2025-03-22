@@ -1,0 +1,34 @@
+package common;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class SingletonDataStore {
+	
+	// ThreadLocal ensures data is isolated for parallel execution
+    private static ThreadLocal<SingletonDataStore> threadLocalInstance = new ThreadLocal<>() {
+        @Override
+        protected SingletonDataStore initialValue() {
+            return new SingletonDataStore();
+        }
+    };
+
+    private Map<String, Object> dataStore;
+
+    private SingletonDataStore() {
+        dataStore = new HashMap<>();
+    }
+
+    public static SingletonDataStore getInstance() {
+        return threadLocalInstance.get();
+    }
+
+    public void set(String key, Object value) {
+        dataStore.put(key, value);
+    }
+
+    public Object get(String key) {
+        return dataStore.get(key);
+    }
+
+}

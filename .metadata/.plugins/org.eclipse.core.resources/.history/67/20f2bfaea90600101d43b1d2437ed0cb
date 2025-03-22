@@ -1,0 +1,158 @@
+package requestBuilder;
+
+import static io.restassured.RestAssured.given;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import common.ConfigReader;
+import common.ExcelReader;
+import common.Utils;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import lombok.Getter;
+import lombok.Setter;
+import payload.Class_POJO;
+import payload.Login_POJO;
+
+@Getter
+@Setter
+public class ClassRequest {
+	 private Class_POJO class_POJO;  
+	    private RequestSpecification requestspecification;
+	    private Response response;
+	
+	public ClassRequest() {
+        this.class_POJO = new Class_POJO();
+    }
+	
+	
+	public void classPostRequestbody(String sheetName, String testCaseID) throws IOException {
+        Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+        String usecase = testData.get("usecase");
+
+        if ("valid".equalsIgnoreCase(usecase)) {
+        	class_POJO.setBatchId(1234); //set stored batchId
+        }
+        	else {
+        		//int batchId = Integer.parseInt(testData.get("batchId"));
+        		class_POJO.setBatchId(Integer.parseInt(testData.get("batchId")));
+        		 
+        	}
+        int expectedStatusCode = (int) Double.parseDouble(testData.get("classNo"));
+        	class_POJO.setClassNo(Integer.parseInt(testData.get("classNo")));
+        	class_POJO.setClassDate(testData.get("classDate"));
+        	class_POJO.setClassTopic(testData.get("classTopic"));
+        	class_POJO.setClassStatus(testData.get("classStatus"));
+        	
+        	 if ("valid".equalsIgnoreCase(usecase)) {
+             	class_POJO.setClassStaffId("U123"); //set stored batchId
+             }
+             	else {
+             		//int batchId = Integer.parseInt(testData.get("batchId"));
+             		class_POJO.setClassStaffId(testData.get("classStaffId"));
+             	}
+        	 
+        	 class_POJO.setClassDescription(testData.get("ClassDescription"));
+         	class_POJO.setClassTopic(testData.get("classTopic"));
+         	class_POJO.setClassComments(testData.get("classComments"));
+         	 class_POJO.setClassNotes(testData.get("classNotes"));
+          	class_POJO.setClassRecordingPath(testData.get("classRecordingPath"));
+          	String classScheduledDatesStr = testData.get("classScheduledDates_1");
+          	String[] datesArray = classScheduledDatesStr.split(",");
+          	List<String> classScheduledDates = Arrays.asList(datesArray);
+          	class_POJO.setClassScheduledDates(classScheduledDates);
+    }
+
+	 public Class_POJO getclassRequestBody() {  
+	        return class_POJO;
+	    }
+	
+	
+	 public void setEndpoint(String sheetName, String testCaseID) throws IOException {
+		    Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+
+		    if ("invalid Endpoint".equalsIgnoreCase(testData.get("usecase"))) {
+		        class_POJO.setEndpoint(testData.get("Endpoint"));  
+		    } else {
+		      
+		        String method = testData.get("Method");
+		        
+		        switch (method.toLowerCase()) {
+		            case "post":
+		                String classPost = enumPackage.Endpoint.Class_POST_CreateNew.getPath(); 
+		                class_POJO.setEndpoint(classPost); 
+		                break;
+
+		            case "class_get_allclasslist":
+		                String Class_GET_AllClassList = enumPackage.Endpoint.Class_GET_AllClassList.getPath(); 
+		                class_POJO.setEndpoint(Class_GET_AllClassList);
+		                break;
+
+		            default:
+		                // Handle the case when the method doesn't match any predefined ones
+		                System.out.println("Unknown method: " + method);
+		                break;
+		        }
+		    }
+		}
+
+		public String getEndpoint() {
+		    return class_POJO.getEndpoint();  
+		}
+
+		 public void classPost(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
+			 classPostRequestbody(sheetName, testCaseID);
+		        setEndpoint(sheetName, testCaseID);
+
+		        // Making the POST request
+		        response = given()
+		            .spec(requestSpecification)
+		            .body(getclassRequestBody())  
+		            .when()
+		            .post(getEndpoint())
+		            .then()
+		            .extract()
+		            .response();
+
+		        System.out.println("****** Request Body: " + class_POJO);
+		        System.out.println("****** Response: " + response.prettyPrint());
+		        System.out.println("****** Status Code: " + response.getStatusCode());
+
+		       
+	/*	        if (response.getContentType() != null && response.getContentType().contains("application/json")) {
+		            String token = response.jsonPath().getString("token");  
+		            if (token != null && !token.isEmpty()) {
+		              //	ConfigReader.setProperty("auth_token", token);
+		            	Utils.set("authToken", token);
+		                System.out.println("Token stored successfully: " + token);
+		            } else {
+		                System.out.println("Token is missing in the response.");
+		            }
+		        } else {
+		            System.out.println("Response is not in JSON format. Received: " + response.getBody().asString());
+		        }*/
+		    }
+
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+
+}

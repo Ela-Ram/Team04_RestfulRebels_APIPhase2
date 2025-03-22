@@ -1,0 +1,17 @@
+package enumPackage;
+
+public enum Endpoint {
+	
+	Login_POST("/login"),
+	Program_POST("/saveprogram");
+	
+	private final String path;
+	Endpoint(String path){
+		this.path = path;
+	}
+	
+	public String getPath() {
+		return path;
+	}
+
+}
