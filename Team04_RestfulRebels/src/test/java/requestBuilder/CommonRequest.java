@@ -44,7 +44,18 @@ public class CommonRequest {
     		.contentType("application/json");
 }
  
-    
+    public RequestSpecification basewithInvalidUrl() {
+        String token = Utils.get("authToken", String.class); // Retrieve token
+         if (token == null || token.isEmpty()) {
+             throw new IllegalStateException("Token is null or empty");
+         }
+         return given()
+                 .baseUri(ConfigReader.getProperty("Invalid_Base_Url"))
+                 .header("Authorization", "Bearer " + token)
+                 .header("Accept", "application/json")
+                 .contentType("application/json");
+         	
+     }
 
 		
 	    public  void validateStatusCode(Response response, Map<String, String> testData) {

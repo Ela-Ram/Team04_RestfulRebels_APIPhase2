@@ -1,3 +1,4 @@
+
 package common;
 
 import java.util.HashMap;
@@ -7,17 +8,20 @@ import io.restassured.specification.RequestSpecification;
 
 public class TestContext {
 	
-	private static Map<String, String> environmentData = new HashMap<>();
-    private static RequestSpecification requestSpecification;
 	
-    
 	
-	public static void setRequestSpecification(RequestSpecification spec) {
-        requestSpecification = spec;
-    }
+	  private static Map<String, RequestSpecification> requestSpecifications = new HashMap<>();
 
-    public static RequestSpecification getRequestSpecification() {
-        return requestSpecification;
-    }
+	    // Method to set a specific RequestSpecification
+	    public static void setRequestSpecification(String key, RequestSpecification spec) {
+	        requestSpecifications.put(key, spec);
+	    }
 
-}
+	    // Method to get a specific RequestSpecification by key
+	    public static RequestSpecification getRequestSpecification(String key) {
+	        return requestSpecifications.get(key);
+	    }
+	}
+
+	
+

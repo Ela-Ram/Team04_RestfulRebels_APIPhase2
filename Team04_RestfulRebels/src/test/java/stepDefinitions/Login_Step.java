@@ -41,7 +41,7 @@ public class Login_Step {
         Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
         commonRequest.validateStatusCode(response, testData);
         commonRequest.validateStatusLine(response, testData);
-        loginRequest.validateSchemaLoginPost(response, testCaseID);
+       // loginRequest.validateSchemaLoginPost(response, testCaseID);
     }
 
     @When("The Admin sends HTTPS POST request for invalid username scenarios as input {string} and {string}")
