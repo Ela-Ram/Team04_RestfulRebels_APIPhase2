@@ -31,10 +31,11 @@ public class Program_Step {
     
     @Given("Admin is on base url with valid auth")
     public void admin_is_on_base_url_with_valid_auth() {
-    	requestSpecification= commonRequest.basewithValidauth();
-    	TestContext.setRequestSpecification(requestSpecification);
+    	
+    	RequestSpecification validRequestSpecification= commonRequest.basewithValidauth();
+    //	TestContext.setRequestSpecification(requestSpecification);
+        TestContext.setRequestSpecification("validRequestSpecification", validRequestSpecification);
 
-        
     }
 
     @When("The Admin sends HTTPS POST request for valid data scenarios as input {string} and {string} for Program")

@@ -10,6 +10,7 @@ import java.util.Map;
 
 import common.ConfigReader;
 import common.ExcelReader;
+import common.LoggerLoad;
 import common.TestContext;
 import common.Utils;
 import io.restassured.response.Response;
@@ -30,147 +31,298 @@ public class ClassRequest {
         this.class_POJO = new Class_POJO();
     }
 	
+
+			 
+		 public void classPostRequestbody(String sheetName, String testCaseID) throws IOException {
+			 Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
 	
-	public void classPostRequestbody(String sheetName, String testCaseID) throws IOException {
-		 Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
-		// Separate use cases for batchId and classStaffId
-		    
-		
-		// Separate use cases for batchId and classStaffId
-		    String batchIdUseCases = testData.get("batchIdUseCase");
-		   
+			 String batchIdUseCases = testData.get("batchIdUseCase");
+			    // Set batchId based on its specific use case
+			    if ("valid".equalsIgnoreCase(batchIdUseCases)) {
+			        class_POJO.setBatchId(11881);
+			        // String BatchId = Utils.get("ValidBatchId", String.class); 
+			    } else {
+			    	String batchIdStr = testData.get("batchId");
 
-		    // Set batchId based on its specific use case
-		    if ("valid".equalsIgnoreCase(batchIdUseCases)) {
-		        class_POJO.setBatchId(123);
-		    } else if("notvalid".equalsIgnoreCase(batchIdUseCases)) {
-		        class_POJO.setBatchId(Integer.parseInt(testData.get("batchId")));
-		    }
-		  //  class_POJO.setClassNo((int) Double.parseDouble(testData.get("classNo")));
-		  //  class_POJO.setClassNo(testData.get("classNo"));
-		    class_POJO.setClassDate(testData.get("classDate"));
-		    class_POJO.setClassTopic(testData.get("classTopic"));
-		    class_POJO.setClassStatus(testData.get("classStatus"));
-		    
-		    String classStaffIdUseCases = testData.get("classStaffIdUseCase");
-		    // Set classStaffId based on its specific use case
-		    if ("valid".equalsIgnoreCase(classStaffIdUseCases)) {
-		        class_POJO.setClassStaffId("U123");
-		    } else {
-		        class_POJO.setClassStaffId(testData.get("classStaffId"));
-		    }
+			    	if (batchIdStr != null && !batchIdStr.trim().isEmpty()) {
+			    	    class_POJO.setBatchId((int)Double.parseDouble(batchIdStr));
+			    	} else {
+			    	    LoggerLoad.info(" BatchId is empty or null");
+			    	}
+			    }
+			    
+			    String classNostr = testData.get("classNo");
 
-		   
-		    class_POJO.setClassDescription(testData.get("ClassDescription"));
-		    class_POJO.setClassComments(testData.get("classComments"));
-		    class_POJO.setClassNotes(testData.get("classNotes"));
-		    class_POJO.setClassRecordingPath(testData.get("classRecordingPath"));
+		    	if (classNostr != null && !classNostr.trim().isEmpty()) {
+		    		class_POJO.setClassNo((int) Double.parseDouble(testData.get("classNo")));
+		    	} else {
+		    	    LoggerLoad.info(" classNo is empty or null");
+		    	}
 
-		    // Handle classScheduledDates
-		    String date1 = testData.getOrDefault("classScheduledDates_1", "").trim();
-		    String date2 = testData.getOrDefault("classScheduledDates_2", "").trim();
+			    
+			    
+			    class_POJO.setClassDate(testData.get("classDate"));
+			    class_POJO.setClassTopic(testData.get("classTopic"));
+			    class_POJO.setClassStatus(testData.get("classStatus"));
+			    
+			    String classStaffIdUseCase = testData.get("classStaffIdUseCase");
+			    if ("valid".equalsIgnoreCase(classStaffIdUseCase)) {
+			        class_POJO.setClassStaffId("U108");
+			     // String setClassStaffId = Utils.get("ValidsetClassStaffId", String.class);
+			    } else {
+			    	
+			    	class_POJO.setClassStaffId(testData.get("classStaffId"));
+			    	
+			  			    }
 
-		    List<String> classScheduledDates = new ArrayList<>();
+			   
+			    class_POJO.setClassDescription(testData.get("ClassDescription"));
+			    class_POJO.setClassComments(testData.get("classComments"));
+			    class_POJO.setClassNotes(testData.get("classNotes"));
+			    class_POJO.setClassRecordingPath(testData.get("classRecordingPath"));
 
-		    if (!date1.isEmpty()) classScheduledDates.add(date1);
-		    if (!date2.isEmpty()) classScheduledDates.add(date2);
+			    if ("empty".equalsIgnoreCase(testData.get("usecase"))) {
+			    	class_POJO.setClassScheduledDates(new ArrayList<>()); // Set an empty list	
 
-		    // Store in POJO
-		    class_POJO.setClassScheduledDates(classScheduledDates);
-
-	}
-
+			    }else {
+			    String classScheduledDatesStr = testData.get("classScheduledDates");
+			        LoggerLoad.info("Debug: The key 'classScheduledDates' is missing. Available keys: " + testData.keySet());
+			    String[] datesArray = classScheduledDatesStr.split(",");
+			    List<String> classScheduledDates = Arrays.asList(datesArray);
+			    class_POJO.setClassScheduledDates(classScheduledDates);		
+			    }
+			    
+			    }		 
+		 
 	 public Class_POJO getclassRequestBody() {  
 	        return class_POJO;
 	    }
+	 	 
+	 
+	 
+	 
+	 
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	 
 	
 	
-	 public void setEndpointClass(String sheetName, String testCaseID) throws IOException {
-	        Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
-	     
-	        	if ("valid".equalsIgnoreCase(testData.get("Endpointusecase"))) {
-		        String method = testData.get("Method");
-		        
-		            
-		        switch (method.toLowerCase()) {
-		            case "post":
-		                String Class_POST_CreateNew = enumPackage.Endpoint.Class_POST_CreateNew.getPath(); 
-		                class_POJO.setEndpoint(Class_POST_CreateNew); 
-		                break;
+	 public void setEndpointPostClass(String sheetName, String testCaseID) throws IOException {
+		 Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+		 if ("invalidEndpoint".equalsIgnoreCase(testData.get("usecase"))) {
+	        	class_POJO.setEndpoint(testData.get("Endpoint"));  // Set endpoint in user_POJO
+	        } else {
+	        	String method = testData.get("Method");
 
-		           
-		           
-		            default:
-		                // Handle the case when the method doesn't match any predefined ones
-		                System.out.println("Unknown method: " + method);
-		                break;
-		        }
+	        	switch (method.toLowerCase()) {
+	        	    case "post":
+	        	        class_POJO.setEndpoint(enumPackage.Endpoint.Class_POST_CreateNew.getPath());
+	        	        break;
+	        	    case "class_get_allclasslist":
+	        	        class_POJO.setEndpoint(enumPackage.Endpoint.Class_GET_AllClassList.getPath());
+	        	        break;
+	        	    case "class_get_allclasses_forparticular_student":
+	        	        class_POJO.setEndpoint(enumPackage.Endpoint.Class_GET_allClasses_forParticular_Student.getPath());
+	        	        break;
+	        	    case "class_get_classrecordings_bybatchid":
+	        	        class_POJO.setEndpoint(enumPackage.Endpoint.Class_GET_ClassRecordings_byBatchId.getPath());
+	        	        break;
+	        	    case "class_get_classdetails_byclassid":
+	        	        class_POJO.setEndpoint(enumPackage.Endpoint.Class_GET_ClassDetails_byClassId.getPath());
+	        	        break;
+	        	    case "class_get_byclasstopic":
+	        	        class_POJO.setEndpoint(enumPackage.Endpoint.Class_GET_byClassTopic.getPath());
+	        	        break;
+	        	    case "class_get_allclasses_bybatchid":
+	        	        class_POJO.setEndpoint(enumPackage.Endpoint.Class_GET_allClasses_byBatchId.getPath());
+	        	        break;
+	        	    case "class_get_allclasses_bystaffid":
+	        	        class_POJO.setEndpoint(enumPackage.Endpoint.Class_GET_allClasses_byStaffId.getPath());
+	        	        break;
+	        	    case "class_get_allrecordings":
+	        	        class_POJO.setEndpoint(enumPackage.Endpoint.Class_GET_allrecordings.getPath());
+	        	        break;
+	        	    case "class_get_classrecordings_byclassid":
+	        	        class_POJO.setEndpoint(enumPackage.Endpoint.Class_GET_ClassRecordings_byClassId.getPath());
+	        	        break;
+	        	    case "class_put_newclass":
+	        	        class_POJO.setEndpoint(enumPackage.Endpoint.Class_PUT_NewClass.getPath());
+	        	        break;
+	        	    case "class_put_class_recording_path":
+	        	        class_POJO.setEndpoint(enumPackage.Endpoint.Class_PUT_Class_Recording_path.getPath());
+	        	        break;
+	        	    case "class_delete_byclassid":
+	        	        class_POJO.setEndpoint(enumPackage.Endpoint.Class_Delete_byClassId.getPath());
+	        	        break;
+	        	    default:
+	        	        LoggerLoad.info("Unknown method -> " + method);
+	        	        throw new IllegalArgumentException("Invalid method: " + method);
 	        	}
-		        else if("invalid Endpoint".equalsIgnoreCase(testData.get("Endpointusecase"))) { 
-		        class_POJO.setEndpoint(testData.get("Endpoint"));
-		        
-		    }
-		
-	 }
-		public String getEndpointclass() {
-		    return class_POJO.getEndpoint();  
-		}
+	        }
 
+	        LoggerLoad.info(" Endpoint set to -> " + class_POJO.getEndpoint());
+	    }
+
+
+	    public String getEndpoint() {
+	        return class_POJO.getEndpoint();
+	    }
+//Post request
 		 public void classPost(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
 			 classPostRequestbody(sheetName, testCaseID);
-		        setEndpointClass(sheetName, testCaseID);
-			  requestSpecification = TestContext.getRequestSpecification();
+		        setEndpointPostClass(sheetName, testCaseID);
+			  requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
 			 if (requestSpecification == null) {
 			        throw new IllegalArgumentException("RequestSpecification cannot be null. Ensure it is properly initialized.");
 			    }
-
-			  
 
 		        // Making the POST request
 		        response = given()
 		            .spec(requestSpecification)
 		            .body(getclassRequestBody())  
 		            .when()
-		            .post("/end");
+		            .post(getEndpoint());
 		            
+		        LoggerLoad.info("****** Request Body: " + class_POJO);
+		        LoggerLoad.info("****** Response: " + response.prettyPrint());
+		        LoggerLoad.info("****** Status Code: " + response.getStatusCode());
 		        
-		      
-		        System.out.println("****** Request Body: " + class_POJO);
-		        System.out.println("****** Response: " + response.prettyPrint());
-		        System.out.println("****** Status Code: " + response.getStatusCode());
+		        if (response.getContentType() != null && response.getContentType().contains("application/json")) {
+		            String csId = response.jsonPath().getString("csId");  
+		            if (csId != null && !csId.isEmpty()) {
+		            	Utils.set("csId", csId);
+		            	Utils.addToList("csId_list",csId);
 
-		       
-	/*	        if (response.getContentType() != null && response.getContentType().contains("application/json")) {
-		            String token = response.jsonPath().getString("token");  
-		            if (token != null && !token.isEmpty()) {
-		              //	ConfigReader.setProperty("auth_token", token);
-		            	Utils.set("authToken", token);
-		                System.out.println("Token stored successfully: " + token);
+		                LoggerLoad.info("Token stored successfully: " + csId);
 		            } else {
-		                System.out.println("Token is missing in the response.");
+		                LoggerLoad.warn("Token is missing in the response.");
 		            }
 		        } else {
-		            System.out.println("Response is not in JSON format. Received: " + response.getBody().asString());
-		        }*/
-		    }
+		            LoggerLoad.warn("Response is not in JSON format. Received: " + response.getBody().asString());
+		        }
+		  
+		        
+		 }
+		 
+		 
+		 public void classPostNoPayload(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
+			 
+		        setEndpointPostClass(sheetName, testCaseID);
+			  requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+			 if (requestSpecification == null) {
+			        throw new IllegalArgumentException("RequestSpecification cannot be null. Ensure it is properly initialized.");
+			    }
 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+			 response = given()
+				        .spec(requestSpecification)
+				        .body("{}")
+				        .when()
+				        .post(getEndpoint());
+		            
+		        LoggerLoad.info("****** Request Body: " + class_POJO);
+		        LoggerLoad.info("****** Response: " + response.prettyPrint());
+		        LoggerLoad.info("****** Status Code: " + response.getStatusCode());
+		        
+		 }
+		 
+		 
+		 public void classPostInvalidUrl(String sheetName, String testCaseID,RequestSpecification requestSpecification) throws IOException {
+			 requestSpecification = TestContext.getRequestSpecification("invalidRequestSpecification");
+		        setEndpointPostClass(sheetName, testCaseID);
 
+			 response = given()
+				        .spec(requestspecification)
+				        .when()
+				        .body(getclassRequestBody())  
+				        .post(getEndpoint());
+		            
+		        LoggerLoad.info("****** Request Body: " + class_POJO);
+		        LoggerLoad.info("****** Response: " + response.prettyPrint());
+		        LoggerLoad.info("****** Status Code: " + response.getStatusCode());     
+		              
+		 }
+		//this is like just the endpoint without parameters
+		 public void classGetwithoutPathParam(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
+			    setEndpointPostClass(sheetName, testCaseID);  // You need to implement this to set your GET endpoint
+			    
+			    requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+			     response = given()
+			            .spec(requestSpecification)
+			            .when()
+			            .get(getEndpoint()); // getEndpoint() should return the full URL for the GET request
+
+			    LoggerLoad.info("****** GET Request Endpoint: " + getEndpoint());
+			    LoggerLoad.info("****** Response: " + response.prettyPrint());
+			    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
+			}
+
+		 public void classGetinvalidMethod(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
+			    setEndpointPostClass(sheetName, testCaseID);  // You need to implement this to set your GET endpoint
+			    
+			    requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+			     response = given()
+			            .spec(requestSpecification)
+			            .when()
+			            .post(getEndpoint()); // getEndpoint() should return the full URL for the GET request
+
+			    LoggerLoad.info("****** GET Request Endpoint: " + getEndpoint());
+			    LoggerLoad.info("****** Response: " + response.prettyPrint());
+			    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
+			}
+
+		 public void classGetbyIdandTopic(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
+			 Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+			 setEndpointPostClass(sheetName, testCaseID); 
+			 String IdValue = "";
+
+			 if ("byBatchId".equalsIgnoreCase(testData.get("usecase"))) {
+			   //  IdValue = String.valueOf((int) Double.parseDouble(Utils.get("BatchId", String.class)));
+				   IdValue = "11881";
+				   // String BatchId = Utils.get("ValidBatchId", String.class);
+			 }else if ("byinvalidBatchId".equalsIgnoreCase(testData.get("usecase"))) {
+				 IdValue = String.valueOf((int) Double.parseDouble(testData.get("batchId")));
+			 }else if("byClassId".equalsIgnoreCase(testData.get("usecase"))) {
+				  IdValue = Utils.get("csId", String.class);
+			 }else if("byinvalidClassId".equalsIgnoreCase(testData.get("usecase"))) {
+				  IdValue = testData.get("ClassId");
+			 }else if("byTopic".equalsIgnoreCase(testData.get("usecase"))) {
+				 IdValue = testData.get("Topic");	 
+			 }else if("byinvalidTopic".equalsIgnoreCase(testData.get("usecase"))) {
+				 IdValue = testData.get("Topic");
+			 }
+			    requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+			     response = given()
+			            .spec(requestSpecification)
+			            .pathParam("id", IdValue)
+			            .when()
+			            .get("getEndpoint(){id}");
+			     
+			     LoggerLoad.info("****** Id used: " + IdValue);
+			    LoggerLoad.info("****** GET Request Endpoint: " + getEndpoint());
+			    LoggerLoad.info("****** Response: " + response.prettyPrint());
+			    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
+			
+		 }
+		 
 }
+
+		       
+	
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+
+
