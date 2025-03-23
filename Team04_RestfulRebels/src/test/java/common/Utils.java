@@ -3,26 +3,35 @@ package common;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
 
 public class Utils {
-	
-	private static final String FILE_PATH = "src/test/resources/dataStore.json";
+
+    private static final String FILE_PATH = "src/test/resources/dataStore.json";
     private static final Gson gson = new Gson();
 
-    // Store single value or list
+    // Overwrite a value
     public static void set(String key, Object value) {
         Map<String, Object> data = load();
-        data.put(key, value);
+        data.put(key, value); // Overwrites the existing value
         save(data);
     }
 
-    // Retrieve value (String or List)
+    // Append to a list
+    public static void addToList(String key, Object value) {
+        Map<String, Object> data = load();
+
+        // Retrieve existing list or create a new one
+        List<Object> list = (List<Object>) data.getOrDefault(key, new ArrayList<>());
+        list.add(value);
+
+        data.put(key, list);
+        save(data);
+    }
+
+    // Retrieve value (String, List, or Object)
     public static <T> T get(String key, Class<T> type) {
         Map<String, Object> data = load();
         return type.cast(data.get(key));

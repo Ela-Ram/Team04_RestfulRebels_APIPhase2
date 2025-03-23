@@ -4,6 +4,7 @@ package requestBuilder;
 	
 	import common.ConfigReader;
 	import common.ExcelReader;
+import common.LoggerLoad;
 import common.TestContext;
 import common.Utils;
 import io.restassured.RestAssured;
@@ -82,9 +83,9 @@ import io.restassured.response.Response;
 	            .extract()
 	            .response();
 
-	        System.out.println("****** Request Body: " + login_POJO);
-	        System.out.println("****** Response: " + response.prettyPrint());
-	        System.out.println("****** Status Code: " + response.getStatusCode());
+	        LoggerLoad.info("****** Request Body: " + login_POJO);
+	        LoggerLoad.info("****** Response: " + response.prettyPrint());
+	        LoggerLoad.info("****** Status Code: " + response.getStatusCode());
 
 	       
 	        if (response.getContentType() != null && response.getContentType().contains("application/json")) {
@@ -92,12 +93,13 @@ import io.restassured.response.Response;
 	            if (token != null && !token.isEmpty()) {
 	              //	ConfigReader.setProperty("auth_token", token);
 	            	Utils.set("authToken", token);
-	                System.out.println("Token stored successfully: " + token);
+	       
+	                LoggerLoad.info("Token stored successfully: " + token);
 	            } else {
-	                System.out.println("Token is missing in the response.");
+	                LoggerLoad.warn("Token is missing in the response.");
 	            }
 	        } else {
-	            System.out.println("Response is not in JSON format. Received: " + response.getBody().asString());
+	        	LoggerLoad.warn("Response is not in JSON format. Received: " + response.getBody().asString());
 	        }
 	    }
 	    
