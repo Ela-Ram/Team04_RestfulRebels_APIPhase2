@@ -8,6 +8,7 @@ import common.Utils;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+
 import payload.Login_POJO;
 import static io.restassured.RestAssured.*;
 import static io.restassured.matcher.RestAssuredMatchers.*;
@@ -20,7 +21,7 @@ import org.testng.Assert;
 public class CommonRequest {
     private RequestSpecification requestspecification;
     private Response response;
-    
+  
 
     
     public RequestSpecification basewithValidauth() {
@@ -57,7 +58,7 @@ public class CommonRequest {
          	
      }
 
-		
+		//Validate Status Code
 	    public  void validateStatusCode(Response response, Map<String, String> testData) {
 	        int expectedStatusCode = (int) Double.parseDouble(testData.get("expectedStatuscode"));
 	        Assert.assertEquals(response.getStatusCode(), expectedStatusCode, "Status code mismatch!");
@@ -69,14 +70,17 @@ public class CommonRequest {
 	    }
 	
 	    public  void validateContentType(Response response, Map<String, String> testData) {
-	        String expectedContentType = testData.get("expectedContentType");
+	        String expectedContentType = "application/json";
 	        Assert.assertEquals(response.getContentType(), expectedContentType, "Content-Type mismatch!");
 	    }
-	    	//should be in particular request builder
+	    	
 	    public  void validateSchema(Response response, String schemaPath) {
 	        response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath(schemaPath));
 	    }
-	
+	    public void validateResponseTime(Response response) {
+	        Assert.assertTrue(response.time() <= 2000, ",actual is" + response.time() + " ms.");
+	    }
+	    
 	    public  void validateErrorMessage(Response response, Map<String, String> testData) {
 	        String expectedMessage = testData.get("expectedErrorMessage");
 	        String actualMessage = response.jsonPath().getString("message");

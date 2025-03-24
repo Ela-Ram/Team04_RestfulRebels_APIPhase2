@@ -37,6 +37,26 @@ public class Utils {
         return type.cast(data.get(key));
     }
 
+    // Remove a specific key from the data store
+    public static void remove(String key) {
+        Map<String, Object> data = load();
+        data.remove(key);
+        save(data);
+    }
+
+    // Clears all stored data by overwriting with an empty JSON object
+    public static void clear() {
+        save(new HashMap<>()); // Overwrites file with an empty object
+    }
+
+    // Deletes the JSON file completely
+    public static void deleteFile() {
+        File file = new File(FILE_PATH);
+        if (file.exists()) {
+            file.delete();
+        }
+    }
+
     // Load JSON file content
     private static Map<String, Object> load() {
         try {

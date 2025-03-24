@@ -29,8 +29,25 @@ public enum Endpoint {
     Class_GET_ClassRecordings_byClassId("/classRecordings/"),
     Class_PUT_NewClass("/updateClass/"),
     Class_PUT_Class_Recording_path("/updateClassrecording/"),
-    Class_Delete_byClassId("/deleteByClass/");
-    
+    Class_Delete_byClassId("/deleteByClass/"),
+	User_POST("/users/roleStatus"),
+	User_GET_AllUsers("/users"),
+	User_GET_AllActiveUser("/users/activeUsers"),
+	User_GET_emailsofalluserswithActivestatus("/fetch-emails"),
+	User_GET_AllRoles("/roles"),
+	User_GET_Userinformation_byUserId("/users/{userId}"),
+	User_GET_all_UsersWithRoles("/users/roles"),
+	User_GET_CountOfActiveandInActiveUsers("/users/byStatus"),
+	User_GET_Userby_ProgramBatches("/users/programBatch/{batchId}"),
+	User_GET_UsersforProgram("/users/programs/{programId}"),
+	User_GET_UserBy_RoleId("/users/roles/{roleId}"),
+	User_GET_UserByRoleId_V2("/v2/users"),
+	User_PUT_byUserId("/users/{userId}"),
+	User_PUT_byRoleId("/users/roleId/{userID}"),
+	User_PUT_byUserRolePgmBatchStatus("/users/roleProgramBatchStatus/{userId}"),
+	User_PUT_UpdateUserLoginStatus("/users/userLogin/{userId}"),
+	User_DELETE_ByUserId("/users/{userID}");
+	
     private final String path;
     Endpoint(String path){
         this.path = path;
