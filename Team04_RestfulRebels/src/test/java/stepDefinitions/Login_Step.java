@@ -2,6 +2,10 @@ package stepDefinitions;
 
 import java.io.IOException;
 import java.util.Map;
+
+import org.testng.Assert;
+
+import requestBuilder.ClassRequest;
 import requestBuilder.CommonRequest;
 import requestBuilder.LoginRequest;
 import common.ExcelReader;
@@ -29,7 +33,8 @@ public class Login_Step {
     public void the_admin_creates_post_request_for_login() {
         requestSpecification = loginRequest.setRequestSpecification();
     }
-
+// TC_01_login Valid Credentials
+    
     @When("The Admin sends HTTPS POST request for valid credentials scenarios as input {string} and {string}")
     public void the_admin_sends_https_post_request_for_valid_credentials_scenarios_as_input_and(String sheetName, String testCaseID) throws IOException {
         loginRequest.loginPost(sheetName, testCaseID, requestSpecification);
@@ -39,11 +44,19 @@ public class Login_Step {
     @Then("The Admin get valid credentials response code and message as {string} and {string}")
     public void the_admin_get_valid_credentials_response_code_and_message_as_and(String sheetName, String testCaseID) throws IOException {
         Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+        this.response = loginRequest.getResponse();
+        String token = response.jsonPath().getString("token");
         commonRequest.validateStatusCode(response, testData);
         commonRequest.validateStatusLine(response, testData);
-       // loginRequest.validateSchemaLoginPost(response, testCaseID);
-    }
-
+        commonRequest.validateContentType(response, testData);
+        commonRequest.validateResponseTime(response);
+        commonRequest.validateSchema(response, "Schema/Login/LoginSchema.json");
+        Assert.assertFalse(token.trim().isEmpty(), "Token should not be empty");
+        
+         }
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    //TC_02_login Invalid Username
+    
     @When("The Admin sends HTTPS POST request for invalid username scenarios as input {string} and {string}")
     public void the_admin_sends_https_post_request_for_invalid_username_scenarios_as_input_and(String sheetName, String testCaseID) throws IOException {
         loginRequest.loginPost(sheetName, testCaseID, requestSpecification);
@@ -54,8 +67,13 @@ public class Login_Step {
     public void the_admin_get_invalid_username_response_code_and_message_as_and(String sheetName, String testCaseID) throws IOException {
         Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
         commonRequest.validateStatusCode(response, testData);
+        commonRequest.validateStatusLine(response, testData);
+        commonRequest.validateResponseTime(response);
+        commonRequest.validateErrorMessage(response, testData);
     }
-
+  //-------------------------------------------------------------------------------------------------------------------------------------------------
+    //TC_03_login Invalid Password
+    
     @When("The Admin sends HTTPS POST request for invalid password scenarios as input {string} and {string}")
     public void the_admin_sends_https_post_request_for_invalid_password_scenarios_as_input_and(String sheetName, String testCaseID) throws IOException {
         loginRequest.loginPost(sheetName, testCaseID, requestSpecification);
@@ -66,8 +84,13 @@ public class Login_Step {
     public void the_admin_get_invalid_password_response_code_and_message_as_and(String sheetName, String testCaseID) throws IOException {
         Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
         commonRequest.validateStatusCode(response, testData);
+        commonRequest.validateStatusLine(response, testData);
+        commonRequest.validateResponseTime(response);
+        commonRequest.validateErrorMessage(response, testData);
     }
-
+    //-------------------------------------------------------------------------------------------------------------------------------------------------
+    // TC_04_login Invalid Endpoint
+    
     @When("The Admin sends HTTPS POST request for invalid Endpoint scenarios as input {string} and {string}")
     public void the_admin_sends_https_post_request_for_invalid_endpoint_scenarios_as_input_and(String sheetName, String testCaseID) throws IOException {
         loginRequest.loginPost(sheetName, testCaseID, requestSpecification);
@@ -78,24 +101,44 @@ public class Login_Step {
     public void the_admin_get_invalid_endpoint_response_code_and_message_as_and(String sheetName, String testCaseID) throws IOException {
         Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
         commonRequest.validateStatusCode(response, testData);
+        commonRequest.validateStatusLine(response, testData);
+        commonRequest.validateResponseTime(response);
     }
+    //-------------------------------------------------------------------------------------------------------------------------------------------------
+    // TC_05_login empty username
     
-    @When("The Admin Creates Get Request for CSRF token")
-    public void the_admin_creates_get_request_for_csrf_token() {
-    	
-    	
-    }
-
-    @Then("The Admin Receives CSRF Token")
-    public void the_admin_receives_csrf_token() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @When("The Admin sends HTTPS POST request for empty username scenarios as input {string} and {string}")
+    public void the_admin_sends_https_post_request_for_empty_username_scenarios_as_input_and(String sheetName, String testCaseID) throws IOException {
+    	loginRequest.loginPost(sheetName, testCaseID, requestSpecification);
+        this.response = loginRequest.getResponse();
         
-     
     }
 
-    
-    
+    @Then("The Admin get empty username response code and message as {string} and {string}")
+    public void the_admin_get_empty_username_response_code_and_message_as_and(String sheetName, String testCaseID) throws IOException {
+    	  Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+          commonRequest.validateStatusCode(response, testData);
+          commonRequest.validateStatusLine(response, testData);
+          commonRequest.validateResponseTime(response);
+          commonRequest.validateErrorMessage(response, testData);  
+    }
+    //-------------------------------------------------------------------------------------------------------------------------------------------------
+    //TC_06_login empty Password
+    @When("The Admin sends HTTPS POST request for empty password scenarios as input {string} and {string}")
+    public void the_admin_sends_https_post_request_for_empty_password_scenarios_as_input_and(String sheetName, String testCaseID) throws IOException {
+    	loginRequest.loginPost(sheetName, testCaseID, requestSpecification);
+        this.response = loginRequest.getResponse();
+       
+    }
+
+    @Then("The Admin get empty password response code and message as {string} and {string}")
+    public void the_admin_get_empty_password_response_code_and_message_as_and(String sheetName, String testCaseID) throws IOException {
+    	 Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+         commonRequest.validateStatusCode(response, testData);
+         commonRequest.validateStatusLine(response, testData);
+         commonRequest.validateResponseTime(response);
+          
+    }  
 }
 
 

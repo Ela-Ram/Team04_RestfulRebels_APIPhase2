@@ -8,17 +8,24 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import org.testng.Assert;
+
+import appHook.Hooks;
 import common.ConfigReader;
 import common.ExcelReader;
 import common.LoggerLoad;
 import common.TestContext;
 import common.Utils;
+import enumPackage.Endpoint;
+import io.restassured.module.jsv.JsonSchemaValidator;
+import io.restassured.path.json.JsonPath;
+import io.restassured.path.json.exception.JsonPathException;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import lombok.Getter;
 import lombok.Setter;
 import payload.Class_POJO;
-import payload.Login_POJO;
+
 
 @Getter
 @Setter
@@ -32,72 +39,65 @@ public class ClassRequest {
     }
 	
 
-			 
-		 public void classPostRequestbody(String sheetName, String testCaseID) throws IOException {
-			 Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
-	
-			 String batchIdUseCases = testData.get("batchIdUseCase");
-			    // Set batchId based on its specific use case
-			    if ("valid".equalsIgnoreCase(batchIdUseCases)) {
-			        class_POJO.setBatchId(11881);
-			        // String BatchId = Utils.get("ValidBatchId", String.class); 
-			    } else {
-			    	String batchIdStr = testData.get("batchId");
+	//Constructing Request Body		 
+	public void classPostRequestbody(String sheetName, String testCaseID) throws IOException {
+	    Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
 
-			    	if (batchIdStr != null && !batchIdStr.trim().isEmpty()) {
-			    	    class_POJO.setBatchId((int)Double.parseDouble(batchIdStr));
-			    	} else {
-			    	    LoggerLoad.info(" BatchId is empty or null");
-			    	}
-			    }
-			    
-			    String classNostr = testData.get("classNo");
-
-		    	if (classNostr != null && !classNostr.trim().isEmpty()) {
-		    		class_POJO.setClassNo((int) Double.parseDouble(testData.get("classNo")));
-		    	} else {
-		    	    LoggerLoad.info(" classNo is empty or null");
-		    	}
-
-			    
-			    
-			    class_POJO.setClassDate(testData.get("classDate"));
-			    class_POJO.setClassTopic(testData.get("classTopic"));
-			    class_POJO.setClassStatus(testData.get("classStatus"));
-			    
-			    String classStaffIdUseCase = testData.get("classStaffIdUseCase");
-			    if ("valid".equalsIgnoreCase(classStaffIdUseCase)) {
-			        class_POJO.setClassStaffId("U108");
-			     // String setClassStaffId = Utils.get("ValidsetClassStaffId", String.class);
-			    } else {
-			    	
-			    	class_POJO.setClassStaffId(testData.get("classStaffId"));
-			    	
-			  			    }
-
-			   
-			    class_POJO.setClassDescription(testData.get("ClassDescription"));
-			    class_POJO.setClassComments(testData.get("classComments"));
-			    class_POJO.setClassNotes(testData.get("classNotes"));
-			    class_POJO.setClassRecordingPath(testData.get("classRecordingPath"));
-
-			    if ("empty".equalsIgnoreCase(testData.get("usecase"))) {
-			    	class_POJO.setClassScheduledDates(new ArrayList<>()); // Set an empty list	
-
-			    }else {
-			    String classScheduledDatesStr = testData.get("classScheduledDates");
-			        LoggerLoad.info("Debug: The key 'classScheduledDates' is missing. Available keys: " + testData.keySet());
-			    String[] datesArray = classScheduledDatesStr.split(",");
-			    List<String> classScheduledDates = Arrays.asList(datesArray);
-			    class_POJO.setClassScheduledDates(classScheduledDates);		
-			    }
-			    
-			    }		 
-		 
-	 public Class_POJO getclassRequestBody() {  
-	        return class_POJO;
+	    // BatchId handling
+	    String batchIdUseCases = testData.get("batchIdUseCase");
+	    if ("valid".equalsIgnoreCase(batchIdUseCases)) {
+	        class_POJO.setBatchId(11881);  // Default valid batchId
+	    } else {
+	        String batchIdStr = testData.get("batchId");
+	        if (batchIdStr != null && !batchIdStr.trim().isEmpty()) {
+	            class_POJO.setBatchId((int) Double.parseDouble(batchIdStr));
+	        } else {
+	            LoggerLoad.info("BatchId is empty or null");
+	        }
 	    }
-	 	 
+
+	    
+	    String classNostr = testData.get("classNo");
+	    if (classNostr != null && !classNostr.trim().isEmpty()) {
+	        class_POJO.setClassNo((int) Double.parseDouble(classNostr));
+	    } else {
+	        LoggerLoad.info("classNo is empty or null");
+	    }
+
+	    class_POJO.setClassDate(testData.get("classDate"));
+	    class_POJO.setClassTopic(testData.get("classTopic"));
+	    class_POJO.setClassStatus(testData.get("classStatus"));
+
+	    // ClassStaffId UseCase Handling
+	    String classStaffIdUseCase = testData.get("classStaffIdUseCase");
+	    if ("valid".equalsIgnoreCase(classStaffIdUseCase)) {
+	        class_POJO.setClassStaffId("U108");
+	    } else {
+	        class_POJO.setClassStaffId(testData.get("classStaffId"));
+	    }
+
+	   
+	    class_POJO.setClassDescription(testData.get("ClassDescription"));
+	    class_POJO.setClassComments(testData.get("classComments"));
+	    class_POJO.setClassNotes(testData.get("classNotes"));
+	    class_POJO.setClassRecordingPath(testData.get("classRecordingPath"));
+
+	   
+	    String classScheduledDatesStr = testData.get("classScheduledDates");
+	    if (classScheduledDatesStr == null || classScheduledDatesStr.trim().isEmpty()) {
+	        LoggerLoad.info("classScheduledDates is empty or null, setting default empty list");
+	        class_POJO.setClassScheduledDates(new ArrayList<>());
+	    } else {
+	        String[] datesArray = classScheduledDatesStr.split(",");
+	        List<String> classScheduledDates = Arrays.asList(datesArray);
+	        class_POJO.setClassScheduledDates(classScheduledDates);
+	    }
+	}
+
+	public Class_POJO getclassRequestBody() {
+	    return class_POJO;
+	}
+
 	 
 	 
 	 
@@ -166,10 +166,15 @@ public class ClassRequest {
 	    public String getEndpoint() {
 	        return class_POJO.getEndpoint();
 	    }
+	    
+//----------------------------------------------------------------------------------------------------------------------------------------------------	    
 //Post request
 		 public void classPost(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
 			 classPostRequestbody(sheetName, testCaseID);
 		        setEndpointPostClass(sheetName, testCaseID);
+		        
+		     
+		       
 			  requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
 			 if (requestSpecification == null) {
 			        throw new IllegalArgumentException("RequestSpecification cannot be null. Ensure it is properly initialized.");
@@ -186,23 +191,28 @@ public class ClassRequest {
 		        LoggerLoad.info("****** Response: " + response.prettyPrint());
 		        LoggerLoad.info("****** Status Code: " + response.getStatusCode());
 		        
+		        
 		        if (response.getContentType() != null && response.getContentType().contains("application/json")) {
-		            String csId = response.jsonPath().getString("csId");  
-		            if (csId != null && !csId.isEmpty()) {
-		            	Utils.set("csId", csId);
-		            	Utils.addToList("csId_list",csId);
-
-		                LoggerLoad.info("Token stored successfully: " + csId);
-		            } else {
-		                LoggerLoad.warn("Token is missing in the response.");
+		            try {
+		                String csId = response.jsonPath().getString("csId");
+		                if (csId != null && !csId.isEmpty()) {
+		                    Utils.set("csId", csId);
+		                    Utils.addToList("csId_list", csId);
+		                    LoggerLoad.info("csId stored successfully: " + csId);
+		                } else {
+		                    LoggerLoad.warn("csId is missing in the response.");
+		                }
+		            } catch (JsonPathException e) {
+		                LoggerLoad.error("Failed to parse JSON response: " + e.getMessage());
 		            }
 		        } else {
 		            LoggerLoad.warn("Response is not in JSON format. Received: " + response.getBody().asString());
-		        }
-		  
+		        }		  
 		        
 		 }
 		 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+	//Post without Payload	 
 		 
 		 public void classPostNoPayload(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
 			 
@@ -224,7 +234,8 @@ public class ClassRequest {
 		        
 		 }
 		 
-		 
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+		 //Post invalid Url
 		 public void classPostInvalidUrl(String sheetName, String testCaseID,RequestSpecification requestSpecification) throws IOException {
 			 requestSpecification = TestContext.getRequestSpecification("invalidRequestSpecification");
 		        setEndpointPostClass(sheetName, testCaseID);
@@ -240,7 +251,8 @@ public class ClassRequest {
 		        LoggerLoad.info("****** Status Code: " + response.getStatusCode());     
 		              
 		 }
-		//this is like just the endpoint without parameters
+//---------------------------------------------------------------------------------------------------------------------------------------------------		 
+		//Get all
 		 public void classGetwithoutPathParam(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
 			    setEndpointPostClass(sheetName, testCaseID);  // You need to implement this to set your GET endpoint
 			    
@@ -254,7 +266,9 @@ public class ClassRequest {
 			    LoggerLoad.info("****** Response: " + response.prettyPrint());
 			    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
 			}
-
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+		 //Class Gell all Invalid Method 
+		 
 		 public void classGetinvalidMethod(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
 			    setEndpointPostClass(sheetName, testCaseID);  // You need to implement this to set your GET endpoint
 			    
@@ -268,8 +282,47 @@ public class ClassRequest {
 			    LoggerLoad.info("****** Response: " + response.prettyPrint());
 			    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
 			}
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+		 //Get by Batch id, Class id, Topic
 
 		 public void classGetbyIdandTopic(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
+			 Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+			 setEndpointPostClass(sheetName, testCaseID); 
+			 String IdValue = "";
+
+			 if ("byBatchId".equalsIgnoreCase(testData.get("usecase"))) {
+			   // IdValue = Utils.get("BatchId", String.class);
+				   IdValue = "11881";
+				   // String BatchId = Utils.get("ValidBatchId", String.class);
+			 }else if ("byinvalidBatchId".equalsIgnoreCase(testData.get("usecase"))) {
+				 IdValue = String.valueOf((int) Double.parseDouble(testData.get("batchId")));
+			 }else if("byClassId".equalsIgnoreCase(testData.get("usecase"))) {	
+				  IdValue = Utils.get("csId", String.class);
+			 }else if("byinvalidClassId".equalsIgnoreCase(testData.get("usecase"))) {
+				  IdValue = testData.get("ClassId");
+			 }else if("byTopic".equalsIgnoreCase(testData.get("usecase"))) {
+				 IdValue = testData.get("Topic");	 
+			 }else if("byinvalidTopic".equalsIgnoreCase(testData.get("usecase"))) {
+				 IdValue = testData.get("Topic");
+			 }
+			    requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+			     response = given()
+			            .spec(requestSpecification)
+			            .pathParam("id", IdValue)
+			            .when()
+			            .get(getEndpoint() + "{id}");
+			         
+			     
+			     LoggerLoad.info("****** Id used: " + IdValue);
+			    LoggerLoad.info("****** GET Request Endpoint: " + getEndpoint());
+			    LoggerLoad.info("****** Response: " + response.prettyPrint());
+			    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
+			
+		 }
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+		 //Get by Batch id, Class id, Topic Invalid Method
+		 
+		 public void classGetbyIdandTopicInvalidMethod(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
 			 Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
 			 setEndpointPostClass(sheetName, testCaseID); 
 			 String IdValue = "";
@@ -294,7 +347,8 @@ public class ClassRequest {
 			            .spec(requestSpecification)
 			            .pathParam("id", IdValue)
 			            .when()
-			            .get("getEndpoint(){id}");
+			            .post(getEndpoint() + "{id}");
+			         
 			     
 			     LoggerLoad.info("****** Id used: " + IdValue);
 			    LoggerLoad.info("****** GET Request Endpoint: " + getEndpoint());
@@ -303,7 +357,121 @@ public class ClassRequest {
 			
 		 }
 		 
-}
+		//------------------------------------------------------------------------------------------------------------------------------------------------------
+		 //Delete Class 
+		 
+		 public void deleteClass(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
+			    setEndpointPostClass(sheetName, testCaseID);  // You need to implement this to set your GET endpoint
+				   String csId = Utils.get("csId", String.class);
+
+			    requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+			     response = given()
+			            .spec(requestSpecification)
+			            .pathParam("id", csId)
+			            .when()
+			            .delete(getEndpoint() + "{id}"); 
+			    
+			    
+			     LoggerLoad.info("****** DELETE Request Endpoint: " + getEndpoint().replace("{id}", csId));
+			    LoggerLoad.info("****** Response: " + response.prettyPrint());
+			    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
+			}
+		 	 
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+		 public static void validateDataClassPost(Class_POJO expectedPOJO, Response response) {
+		        // Parse the response body to extract actual values
+		        JsonPath jsonPath = response.jsonPath();
+
+		        // Validate batchId
+		        Assert.assertEquals(expectedPOJO.getBatchId(), jsonPath.getInt("batchId"), "Mismatch in batchId");
+
+		        // Validate classNo
+		        Assert.assertEquals(expectedPOJO.getClassNo(), jsonPath.getInt("classNo"), "Mismatch in classNo");
+
+		        // Validate classDate
+		        Assert.assertEquals(expectedPOJO.getClassDate(), jsonPath.getString("classDate"), "Mismatch in classDate");
+
+		        // Validate classTopic
+		        Assert.assertEquals(expectedPOJO.getClassTopic(), jsonPath.getString("classTopic"), "Mismatch in classTopic");
+
+		        // Validate classStatus
+		        Assert.assertEquals(expectedPOJO.getClassStatus(), jsonPath.getString("classStatus"), "Mismatch in classStatus");
+
+		        // Validate classStaffId
+		        Assert.assertEquals(expectedPOJO.getClassStaffId(), jsonPath.getString("classStaffId"), "Mismatch in classStaffId");
+
+		        // Validate classScheduledDates as lists (order matters)
+		        List<String> expectedScheduledDates = expectedPOJO.getClassScheduledDates();
+		        List<String> actualScheduledDates = jsonPath.getList("classScheduledDates");
+
+		        Assert.assertEquals(expectedScheduledDates.size(), actualScheduledDates.size(), "Mismatch in classScheduledDates size");
+
+		        // Loop through and compare each scheduled date
+		        for (int i = 0; i < expectedScheduledDates.size(); i++) {
+		            Assert.assertEquals(expectedScheduledDates.get(i), actualScheduledDates.get(i), "Mismatch in classScheduledDates at index " + i);
+		        }
+		    }
+		 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------
+		 public void cleanupClass(String key) {
+		        // Retrieve the csId_list from the Utils (which stores a list of csIds)
+		        List<Object> csId_list = Utils.get(key, List.class);
+		        if (csId_list != null && !csId_list.isEmpty()) {
+		            // Iterate over each csId in the list
+		            for (Object csId1 : csId_list) {
+		                String csId = String.valueOf(csId1);  // Convert the Object to String
+
+		                deleteClassforcleanup(csId);
+		                System.out.println("Deleted csId: " + csId);
+		            }
+
+		            Utils.remove(key);  // This removes the "csId_list" from Utils
+		            System.out.println("All csIds from the list have been deleted and cleaned up from the Utils.");
+		        } else {
+		            System.out.println("No csIds found in the list to delete.");
+		        }
+		    }
+
+		    // Method to delete a class by its csId
+		    public void deleteClassforcleanup(String csId) {
+		        String endpoint = Endpoint.Class_Delete_byClassId.getPath(); 
+		        requestspecification = TestContext.getRequestSpecification("validRequestSpecification");
+
+		        // Send DELETE request for the given csId
+		        response = given()
+		                .spec(requestspecification)
+		                .pathParam("id", csId)  // Set the csId in the URL path
+		                .when()
+		                .delete(endpoint + "{id}");
+
+		
+		        LoggerLoad.info("****** DELETE Request Endpoint: " + endpoint.replace("{id}", csId));
+		        LoggerLoad.info("****** Response: " + response.prettyPrint());
+		        LoggerLoad.info("****** Status Code: " + response.getStatusCode());
+
+		        if (response.getStatusCode() != 200) {
+		            LoggerLoad.error("Failed to delete csId: " + csId + ". Status Code: " + response.getStatusCode());
+		        } else {
+		            LoggerLoad.info("Successfully deleted csId: " + csId);
+		        }
+		    }
+		
+			
+			}
+
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+
 
 		       
 	

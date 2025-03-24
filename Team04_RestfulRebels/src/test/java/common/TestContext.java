@@ -11,7 +11,7 @@ public class TestContext {
 	
 	
 	  private static Map<String, RequestSpecification> requestSpecifications = new HashMap<>();
-
+	
 	    // Method to set a specific RequestSpecification
 	    public static void setRequestSpecification(String key, RequestSpecification spec) {
 	        requestSpecifications.put(key, spec);
@@ -21,6 +21,7 @@ public class TestContext {
 	    public static RequestSpecification getRequestSpecification(String key) {
 	        return requestSpecifications.get(key);
 	    }
+	  	    
 	}
 
 	

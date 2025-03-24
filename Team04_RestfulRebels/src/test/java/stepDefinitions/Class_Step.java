@@ -1,7 +1,5 @@
 package stepDefinitions;
 
-import static io.restassured.RestAssured.given;
-
 import java.io.IOException;
 import java.util.Map;
 
@@ -15,6 +13,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import payload.Class_POJO;
 import requestBuilder.ClassRequest;
 import requestBuilder.CommonRequest;
 
@@ -29,7 +28,7 @@ public class Class_Step {
         this.commonRequest = new CommonRequest();
     }
 
-	//Post Valid
+	//TC_01_class Post Valid
 @When("The Admin sends HTTPS POST request for valid data scenarios as input {string} and {string} for Class")
 public void the_admin_sends_https_post_request_for_valid_data_scenarios_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {
 	
@@ -41,10 +40,16 @@ public void the_admin_sends_https_post_request_for_valid_data_scenarios_as_input
 @Then("The Admin get valid data response code and message as {string} and {string} for Class")
 public void the_admin_get_valid_data_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
 	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	Class_POJO expectedClassData = classRequest.getclassRequestBody();
 	 commonRequest.validateStatusCode(response, testData);
      commonRequest.validateStatusLine(response, testData);
-    
+     commonRequest.validateContentType(response, testData);
+     commonRequest.validateResponseTime(response);
+     commonRequest.validateSchema(response, "Schema/Class/CreateClassSchema_Post.json");
+     ClassRequest.validateDataClassPost(expectedClassData, response);
 }
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+//TC_02_class Post Class Mandatory fields
 
 @When("The Admin sends HTTPS POST request for mandatory fields scenarios as input {string} and {string} for Class")
 public void the_admin_sends_https_post_request_for_mandatory_fields_scenarios_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {
@@ -55,76 +60,111 @@ public void the_admin_sends_https_post_request_for_mandatory_fields_scenarios_as
 
 @Then("The Admin get mandatory fields response code and message as {string} and {string} for Class")
 public void the_admin_get_mandatory_fields_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	Class_POJO expectedClassData = classRequest.getclassRequestBody();
+	 commonRequest.validateStatusCode(response, testData);
+     commonRequest.validateStatusLine(response, testData);
+     commonRequest.validateContentType(response, testData);
+     commonRequest.validateResponseTime(response);
+     commonRequest.validateSchema(response, "Schema/Class/CreateClassSchema_Post.json");
+     ClassRequest.validateDataClassPost(expectedClassData, response);
 	   
 }
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+//TC_03_class Post Class Additional fields
 
 @When("The Admin sends HTTPS POST request for additional fields scenarios as input {string} and {string} for Class")
 public void the_admin_sends_https_post_request_for_additional_fields_scenarios_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {
+	
 	classRequest.classPost(sheetName, testCaseID, requestSpecification);
-    this.response = classRequest.getResponse(); // Capture response for validations
+    this.response = classRequest.getResponse(); 
  
-    
 }
 
 @Then("The Admin get additional fields response code and message as {string} and {string} for Class")
-public void the_admin_get_additional_fields_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) {
+public void the_admin_get_additional_fields_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
    
 }
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+// TC_04_class Post Class Invalid Data
 
 @When("The Admin sends HTTPS POST request for invalid data scenarios as input {string} and {string} for Class")
 public void the_admin_sends_https_post_request_for_invalid_data_scenarios_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {
 	classRequest.classPost(sheetName, testCaseID, requestSpecification);
-    this.response = classRequest.getResponse(); // Capture response for validations
+    this.response = classRequest.getResponse(); 
     
 }
 
 @Then("The Admin get invalid data response code and message as {string} and {string} for Class")
-public void the_admin_get_invalid_data_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) {
+public void the_admin_get_invalid_data_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
+
     
 }
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+// TC_05_class Post Class Existing Class Topic
 
 @When("The Admin sends HTTPS POST request for existing class topic scenarios as input {string} and {string} for Class")
 public void the_admin_sends_https_post_request_for_existing_class_topic_scenarios_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {
 	classRequest.classPost(sheetName, testCaseID, requestSpecification);
-    this.response = classRequest.getResponse(); // Capture response for validations
+    this.response = classRequest.getResponse(); 
     
 }
 
 @Then("The Admin get existing class topic response code and message as {string} and {string} for Class")
-public void the_admin_get_existing_class_topic_response_code_and_message_as_and_for_class(String string, String string2) {
+public void the_admin_get_existing_class_topic_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
     
 }
-	
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+//TC_06_class invalid endpoint	
 
 @When("The Admin sends HTTPS POST request for invalid endpoint scenarios as input {string} and {string} for Class")
 public void the_admin_sends_https_post_request_for_invalid_endpoint_scenarios_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {
 	classRequest.classPost(sheetName, testCaseID, requestSpecification);
-    this.response = classRequest.getResponse(); // Capture response for validations
+    this.response = classRequest.getResponse(); 
     
 }
 
 @Then("The Admin get invalid endpoint response code and message as {string} and {string} for Class")
-public void the_admin_get_invalid_endpoint_response_code_and_message_as_and_for_class(String string, String string2) {
-    
+public void the_admin_get_invalid_endpoint_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
+
 }
-	
-//Scenario without payload
+//----------------------------------------------------------------------------------------------------------------------------------------------------------	
+// TC_07_class Scenario without payload
 
 @When("The Admin sends HTTPS POST request for no payload scenarios as input {string} and {string} for Class")
 public void the_admin_sends_https_post_request_for_no_payload_scenarios_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {
 	classRequest.classPostNoPayload( sheetName, testCaseID, requestSpecification);
-    this.response = classRequest.getResponse(); // Capture response for validations
+    this.response = classRequest.getResponse(); 
     
 }
 
 @Then("The Admin get no payload response code and message as {string} and {string} for Class")
-public void the_admin_get_no_payload_response_code_and_message_as_and_for_class(String string, String string2) {
+public void the_admin_get_no_payload_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
+
     
 }
-
-//Get all class
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+// TC_08_class Get all class
 
 
 @When("The Admin sends HTTPS Get request for Get all class valid scenarios as input {string} and {string} for Class")
@@ -135,11 +175,17 @@ public void the_admin_sends_https_get_request_for_get_all_class_valid_scenarios_
 }
 
 @Then("The Admin get Get all class valid response code and message as {string} and {string} for Class")
-public void the_admin_get_get_all_class_valid_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) {
+public void the_admin_get_get_all_class_valid_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
+    commonRequest.validateContentType(response, testData);
+  //  commonRequest.validateSchema(response, "Schema/Class/class_get_allclasslistSchema.json");
     
 }
-
-//Get all class invalid endpoint
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+// TC_09_class Get all class invalid endpoint
 
 @When("The Admin sends HTTPS Get request for Get all class invalid Endpoint scenarios as input {string} and {string} for Class")
 public void the_admin_sends_https_get_request_for_get_all_class_invalid_endpoint_scenarios_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {
@@ -149,10 +195,15 @@ public void the_admin_sends_https_get_request_for_get_all_class_invalid_endpoint
 }
 
 @Then("The Admin get Get all class invalid Endpoint response code and message as {string} and {string} for Class")
-public void the_admin_get_get_all_class_invalid_endpoint_response_code_and_message_as_and_for_class(String string, String string2) {
+public void the_admin_get_get_all_class_invalid_endpoint_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
    
 }
-//Get all class invalid method
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+// TC_10_class Get all class invalid method
 
 
 @When("The Admin sends HTTPS Get request for Get all class invalid method scenarios as input {string} and {string} for Class")
@@ -163,11 +214,18 @@ public void the_admin_sends_https_get_request_for_get_all_class_invalid_method_s
 }
 
 @Then("The Admin get Get all class invalid method response code and message as {string} and {string} for Class")
-public void the_admin_get_get_all_class_invalid_method_response_code_and_message_as_and_for_class(String string, String string2) {
+public void the_admin_get_get_all_class_invalid_method_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
+
+	
+	
     
 }
-
-//get class recordings by batchid
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+// TC_11_class get class recordings by batchid
 
 
 @When("The Admin sends HTTPS Get request for Get class recordings by BatchId valid scenarios as input {string} and {string} for Class")
@@ -177,11 +235,17 @@ public void the_admin_sends_https_get_request_for_get_class_recordings_by_batch_
 }
 
 @Then("The Admin get Get class recordings by BatchId valid response code and message as {string} and {string} for Class")
-public void the_admin_get_get_class_recordings_by_batch_id_valid_response_code_and_message_as_and_for_class(String string, String string2) {
+public void the_admin_get_get_class_recordings_by_batch_id_valid_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
+    commonRequest.validateContentType(response, testData);
+    commonRequest.validateSchema(response, "Schema/Class/class_get_classrecordings_bybatchid.json");
     
 }
-
-//get class recordings by invalid batchid
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+//TC_12_class get class recordings by invalid batchid
 @When("The Admin sends HTTPS Get request for Get class recordings by BatchId invalid BatchId scenarios as input {string} and {string} for Class")
 public void the_admin_sends_https_get_request_for_get_class_recordings_by_batch_id_invalid_batch_id_scenarios_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {
 	classRequest.classGetbyIdandTopic(sheetName, testCaseID, requestSpecification);
@@ -189,11 +253,15 @@ public void the_admin_sends_https_get_request_for_get_class_recordings_by_batch_
 }
 
 @Then("The Admin get Get class recordings by BatchId invalid BatchId response code and message as {string} and {string} for Class")
-public void the_admin_get_get_class_recordings_by_batch_id_invalid_batch_id_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) {
+public void the_admin_get_get_class_recordings_by_batch_id_invalid_batch_id_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
     
 }
-
-//get class recordings by invalid endpoint
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+//TC_13_class get class recordings by invalid endpoint
 
 @When("The Admin sends HTTPS Get request for Get class recordings by BatchId invalid Endpoint scenarios as input {string} and {string} for Class")
 public void the_admin_sends_https_get_request_for_get_class_recordings_by_batch_id_invalid_endpoint_scenarios_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {
@@ -202,23 +270,35 @@ public void the_admin_sends_https_get_request_for_get_class_recordings_by_batch_
 }
 
 @Then("The Admin get Get class recordings by BatchId invalid Endpoint response code and message as {string} and {string} for Class")
-public void the_admin_get_get_class_recordings_by_batch_id_invalid_endpoint_response_code_and_message_as_and_for_class(String string, String string2) {
+public void the_admin_get_get_class_recordings_by_batch_id_invalid_endpoint_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
+	
    
 }
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+// TC_14_class get class recordings by invalid method
 
-//get class recordings by invalid method
 @When("The Admin sends HTTPS Get request for Get class recordings by BatchId invalid method scenarios as input {string} and {string} for Class")
 public void the_admin_sends_https_get_request_for_get_class_recordings_by_batch_id_invalid_method_scenarios_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {
-	classRequest.classGetinvalidMethod(sheetName, testCaseID, requestSpecification);
+	classRequest.classGetbyIdandTopicInvalidMethod(sheetName, testCaseID, requestSpecification);
 	this.response = classRequest.getResponse();
   
 }
 
 @Then("The Admin get Get class recordings by BatchId invalid method response code and message as {string} and {string} for Class")
-public void the_admin_get_get_class_recordings_by_batch_id_invalid_method_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) {
+public void the_admin_get_get_class_recordings_by_batch_id_invalid_method_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
+
    
 }
-//get class by topicvalid
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+// TC_15_class get class by topicvalid
 
 
 @When("The Admin sends HTTPS Get request for Get class by Topic valid scenarios as input {string} and {string} for Class")
@@ -229,10 +309,17 @@ public void the_admin_sends_https_get_request_for_get_class_by_topic_valid_scena
 }
 
 @Then("The Admin get Get class by Topic valid response code and message as {string} and {string} for Class")
-public void the_admin_get_get_class_by_topic_valid_response_code_and_message_as_and_for_class(String string, String string2) {
+public void the_admin_get_get_class_by_topic_valid_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
+    commonRequest.validateContentType(response, testData);
+    commonRequest.validateSchema(response, "Schema/Class/class_get_classrecordings_bybatchid.json");
    
 }
-//get class by topic invalid
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+//TC_16_class get class by topic invalid
 @When("The Admin sends HTTPS Get request for Get class by Topic invalid scenarios as input {string} and {string} for Class")
 public void the_admin_sends_https_get_request_for_get_class_by_topic_invalid_scenarios_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {
 	classRequest.classGetbyIdandTopic(sheetName, testCaseID, requestSpecification);
@@ -240,23 +327,71 @@ public void the_admin_sends_https_get_request_for_get_class_by_topic_invalid_sce
 }
 
 @Then("The Admin get Get class by Topic invalid response code and message as {string} and {string} for Class")
-public void the_admin_get_get_class_by_topic_invalid_response_code_and_message_as_and_for_class(String string, String string2) {
+public void the_admin_get_get_class_by_topic_invalid_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
    
 }
-//get class by topic invalid method
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+//TC_17_class get class by topic invalid method
 
 @When("The Admin sends HTTPS Get request for Get class by Topic invalid method scenarios as input {string} and {string} for Class")
 public void the_admin_sends_https_get_request_for_get_class_by_topic_invalid_method_scenarios_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {
-	
-	classRequest.classGetinvalidMethod(sheetName, testCaseID, requestSpecification);
+	classRequest.classGetbyIdandTopicInvalidMethod(sheetName, testCaseID, requestSpecification);
 	this.response = classRequest.getResponse();
-   
+
 }
 
 @Then("The Admin get Get class by Topic invalid method response code and message as {string} and {string} for Class")
-public void the_admin_get_get_class_by_topic_invalid_method_response_code_and_message_as_and_for_class(String string, String string2) {
+public void the_admin_get_get_class_by_topic_invalid_method_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
+   
    
 }
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+//TC_18_class get class by topic invalid Endpoint
+
+@When("The Admin sends HTTPS Get request for Get class by Topic invalid Endpoint scenarios as input {string} and {string} for Class")
+public void the_admin_sends_https_get_request_for_get_class_by_topic_invalid_endpoint_scenarios_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {
+	classRequest.classGetbyIdandTopic(sheetName, testCaseID, requestSpecification);
+	this.response = classRequest.getResponse();
+    
+}
+
+@Then("The Admin get Get class by Topic invalid Endpoint response code and message as {string} and {string} for Class")
+public void the_admin_get_get_class_by_topic_invalid_endpoint_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
+   
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+//TC_01_class_del Delete by valid classId
+
+@When("The Admin sends HTTPS Delete request for valid classID scenarios as input {string} and {string} for Class")
+public void the_admin_sends_https_delete_request_for_valid_class_id_scenarios_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {
+	classRequest.deleteClass(sheetName, testCaseID, requestSpecification);
+	this.response = classRequest.getResponse();
+	 Utils.remove("csId");
+}
+
+@Then("The Admin get <Endpoint> valid classID response code and message as {string} and {string} for Class")
+public void the_admin_get_endpoint_valid_class_id_response_code_and_message_as_and_for_class(String sheetName, String testCaseID) throws IOException {
+	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	commonRequest.validateStatusCode(response, testData);
+    commonRequest.validateStatusLine(response, testData);
+    commonRequest.validateResponseTime(response);
+
+    
+}
+
 
 	
 

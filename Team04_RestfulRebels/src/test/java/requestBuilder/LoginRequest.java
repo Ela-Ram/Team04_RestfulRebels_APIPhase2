@@ -13,7 +13,7 @@ import io.restassured.response.Response;
 	import io.restassured.specification.RequestSpecification;
 	import lombok.Getter;
 	import lombok.Setter;
-	import payload.Login_POJO;
+import payload.Login_POJO;
 	import static io.restassured.RestAssured.*;
 	import static io.restassured.matcher.RestAssuredMatchers.*;
 	import static org.hamcrest.Matchers.*;
@@ -93,7 +93,8 @@ import io.restassured.response.Response;
 	            if (token != null && !token.isEmpty()) {
 	              //	ConfigReader.setProperty("auth_token", token);
 	            	Utils.set("authToken", token);
-	       
+	            	
+
 	                LoggerLoad.info("Token stored successfully: " + token);
 	            } else {
 	                LoggerLoad.warn("Token is missing in the response.");

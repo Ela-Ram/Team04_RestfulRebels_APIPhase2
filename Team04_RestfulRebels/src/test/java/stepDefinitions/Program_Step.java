@@ -54,6 +54,17 @@ public class Program_Step {
        
     }
 
+@When("The Admin sends HTTPS POST request for invalid endpoint scenarios as input {string} and {string} for Program")
+public void the_admin_sends_https_post_request_for_invalid_endpoint_scenarios_as_input_and_for_program(String sheetName, String testCaseID) throws IOException {
+	programRequest.programPost(sheetName, testCaseID, requestSpecification);
+    this.response = programRequest.getResponse(); // Capture response for validations
+}
+
+@Then("The Admin get invalid endpoint response code and message as {string} and {string} for Program")
+public void the_admin_get_invalid_endpoint_response_code_and_message_as_and_for_program(String string, String string2) {
+    
+}
+
     
     
     
