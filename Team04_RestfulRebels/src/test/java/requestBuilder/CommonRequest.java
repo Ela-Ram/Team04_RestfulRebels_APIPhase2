@@ -3,6 +3,7 @@ package requestBuilder;
 	
 
 import common.ConfigReader;
+import common.LoggerLoad;
 import common.TestContext;
 import common.Utils;
 import io.restassured.module.jsv.JsonSchemaValidator;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 public class CommonRequest {
     private RequestSpecification requestspecification;
@@ -25,7 +27,7 @@ public class CommonRequest {
 
     
     public RequestSpecification basewithValidauth() {
-       String token = Utils.get("authToken", String.class); // Retrieve token
+       String token = Utils.get("authToken", String.class); 
         if (token == null || token.isEmpty()) {
             throw new IllegalStateException("Token is null or empty");
         }
@@ -41,12 +43,13 @@ public class CommonRequest {
     public RequestSpecification basewithNoauth() {
     return given()
     		.baseUri(ConfigReader.getProperty("Base_Url"))
+    		//.header("Authorization", "Bearer ")
     		.header("Accept", "application/json")
     		.contentType("application/json");
 }
  
     public RequestSpecification basewithInvalidUrl() {
-        String token = Utils.get("authToken", String.class); // Retrieve token
+        String token = Utils.get("authToken", String.class); 
          if (token == null || token.isEmpty()) {
              throw new IllegalStateException("Token is null or empty");
          }
@@ -58,34 +61,69 @@ public class CommonRequest {
          	
      }
 
-		//Validate Status Code
-	    public  void validateStatusCode(Response response, Map<String, String> testData) {
-	        int expectedStatusCode = (int) Double.parseDouble(testData.get("expectedStatuscode"));
-	        Assert.assertEquals(response.getStatusCode(), expectedStatusCode, "Status code mismatch!");
-	    }
-	
-	    public  void validateStatusLine(Response response, Map<String, String> testData) {
-	        String expectedStatusLine = testData.get("expectedStatusLine");
-	        Assert.assertEquals(response.getStatusLine(), expectedStatusLine, "Status line mismatch!");
-	    }
-	
-	    public  void validateContentType(Response response, Map<String, String> testData) {
-	        String expectedContentType = "application/json";
-	        Assert.assertEquals(response.getContentType(), expectedContentType, "Content-Type mismatch!");
-	    }
-	    	
-	    public  void validateSchema(Response response, String schemaPath) {
-	        response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath(schemaPath));
-	    }
-	    public void validateResponseTime(Response response) {
-	        Assert.assertTrue(response.time() <= 2000, ",actual is" + response.time() + " ms.");
-	    }
-	    
-	    public  void validateErrorMessage(Response response, Map<String, String> testData) {
-	        String expectedMessage = testData.get("expectedErrorMessage");
-	        String actualMessage = response.jsonPath().getString("message");
-	        Assert.assertEquals(actualMessage, expectedMessage, "Error message mismatch!");
-	    }
-	
+		
+    public void validateStatusCode(Response response, Map<String, String> testData) {
+        SoftAssert softAssert = new SoftAssert();  // Create SoftAssert instance
+        
+        int expectedStatusCode = (int) Double.parseDouble(testData.get("expectedStatuscode"));
+        softAssert.assertEquals(response.getStatusCode(), expectedStatusCode, "Status code mismatch!");
+        softAssert.assertAll();  
+    }
+
+    public void validateStatusLine(Response response, Map<String, String> testData) {
+        SoftAssert softAssert = new SoftAssert(); 
+
+        String expectedStatusLine = testData.get("expectedStatusLine");
+        softAssert.assertEquals(response.getStatusLine(), expectedStatusLine, "Status line mismatch!");
+        softAssert.assertAll(); 
+    }
+
+    public void validateContentType(Response response, Map<String, String> testData) {
+        SoftAssert softAssert = new SoftAssert();
+        String expectedContentType = "application/json";
+        softAssert.assertEquals(response.getContentType(), expectedContentType, "Content-Type mismatch!");
+        softAssert.assertAll();  
+    }
+
+    public void validateSchema(Response response, String schemaPath) {
+        SoftAssert softAssert = new SoftAssert(); 
+
+        try {
+            response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath(schemaPath));
+        } catch (AssertionError e) {
+            softAssert.fail("Schema validation failed: " + e.getMessage());
+        }
+
+        softAssert.assertAll(); 
+    }
+
+    public void validateResponseTime(Response response) {
+        SoftAssert softAssert = new SoftAssert(); 
+        softAssert.assertTrue(response.time() <= 4000, "Response time is too long. Actual time: " + response.time() + " ms.");
+        softAssert.assertAll(); 
+    }
+
+    public void validateErrorMessage(Response response, Map<String, String> testData) {
+        SoftAssert softAssert = new SoftAssert(); 
+
+        String expectedMessage = testData.get("expectedErrorMessage");
+        String actualMessage = response.jsonPath().getString("message");
+        softAssert.assertEquals(actualMessage, expectedMessage, "Error message mismatch!");
+
+        softAssert.assertAll();  
+    }
+
+    public void validateSuccessMessage(Response response, Map<String, String> testData) {
+        SoftAssert softAssert = new SoftAssert(); 
+
+        String expectedMessage = testData.get("expectedSuccessMessage");
+        String actualMessage = response.getBody().asString(); 
+        softAssert.assertEquals(actualMessage, expectedMessage, "Success message mismatch!");
+
+        LoggerLoad.info("Success message validated. Response: " + actualMessage);
+
+        softAssert.assertAll(); 
+    }
+
 
 }

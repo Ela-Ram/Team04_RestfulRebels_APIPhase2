@@ -1,5 +1,5 @@
 @LMS
-Feature: Login/Logout Functionality
+Feature: Login Functionality
 
   @login
   Scenario Outline: Login functionality with different values from Tese data
