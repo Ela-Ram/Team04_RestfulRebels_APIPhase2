@@ -2,6 +2,7 @@ package enumPackage;
 
 public enum Endpoint {
     Login_POST("/login"),
+    Logout_Get("/logoutlms"),
     Program_POST("/saveprogram"),
     Program_GET_allPrograms("/allPrograms"),
     Program_GET_allProgram_withUsers("/allProgramsWithUsers"),
