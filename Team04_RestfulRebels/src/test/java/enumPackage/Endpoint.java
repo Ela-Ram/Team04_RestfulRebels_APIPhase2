@@ -42,11 +42,11 @@ public enum Endpoint {
 	User_GET_UsersforProgram("/users/programs/18971"),
 	User_GET_UserBy_RoleId("/users/roles/R02"),
 	User_GET_UserByRoleId_V2("/v2/users"),
-	User_PUT_byUserId("/users/U2952"),
-	User_PUT_byRoleId("/users/roleId/{userID}"),
-	User_PUT_byUserRolePgmBatchStatus("/users/roleProgramBatchStatus/{userId}"),
+	User_PUT_byUserId("/users/"),
+	User_PUT_byRoleId("/users/"),
+	User_PUT_byUserRolePgmBatchStatus("/users/roleProgramBatchStatus/"),
 	User_PUT_UpdateUserLoginStatus("/users/userLogin/{userId}"),
-	User_DELETE_ByUserId("/users/{userID}");
+	User_DELETE_ByUserId("/users/");
 	
     private final String path;
     Endpoint(String path){
