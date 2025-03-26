@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @AllArgsConstructor
 public class User_POJO {
 
-    private String userComments;
+	private String userComments;
     private String userEduPg;
     private String userEduUg;
     private String userFirstName;
@@ -26,6 +26,7 @@ public class User_POJO {
     private String userTimeZone;
     private String userVisaStatus;
     private UserLogin userLogin;
+    
 
     @Data
     @NoArgsConstructor
