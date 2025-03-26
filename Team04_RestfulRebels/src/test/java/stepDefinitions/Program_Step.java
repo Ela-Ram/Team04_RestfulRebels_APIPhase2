@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import requestBuilder.CommonRequest;
-import requestBuilder.LoginRequest;
+import requestBuilder.LoginandLogoutRequest;
 import requestBuilder.ProgramRequest;
 import common.ExcelReader;
 import common.TestContext;
@@ -19,13 +19,13 @@ public class Program_Step {
     private Response response;
     private CommonRequest commonRequest;
     private ProgramRequest programRequest;
-    private LoginRequest loginRequest;
+    private LoginandLogoutRequest loginRequest;
     
     public Program_Step() {
   
         this.commonRequest = new CommonRequest();
         this.programRequest = new ProgramRequest();
-        this.loginRequest = new LoginRequest();
+        this.loginRequest = new LoginandLogoutRequest();
     }
 
     

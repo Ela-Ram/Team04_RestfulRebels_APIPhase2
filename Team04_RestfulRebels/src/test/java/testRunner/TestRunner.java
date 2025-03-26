@@ -7,6 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 	    features = "src/test/resources/features", // Path to your feature files
+	    tags =  "@login or @class",
 	    glue = "stepDefinitions", // Package where your step definitions are located
 	    plugin = {
 	        "pretty", // Pretty formatting for console output

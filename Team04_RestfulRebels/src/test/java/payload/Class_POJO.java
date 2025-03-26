@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor   // No-argument constructor
 @AllArgsConstructor  // All-argument constructor
-@Data               // Generates getter, setter, toString, equals, and hashCode
+@Data               // Generates getter, setter
 
 public class Class_POJO {
 	private int batchId;
