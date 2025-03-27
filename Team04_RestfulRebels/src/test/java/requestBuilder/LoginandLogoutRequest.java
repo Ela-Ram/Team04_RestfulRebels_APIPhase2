@@ -1,36 +1,35 @@
 package requestBuilder;
-
-
 	
-	import common.ConfigReader;
-	import common.ExcelReader;
+import common.ConfigReader;
+import common.ExcelReader;
 import common.LoggerLoad;
 import common.TestContext;
 import common.Utils;
 import io.restassured.RestAssured;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
-	import io.restassured.specification.RequestSpecification;
-	import lombok.Getter;
-	import lombok.Setter;
+import io.restassured.specification.RequestSpecification;
+import lombok.Getter;
+import lombok.Setter;
 import payload.Login_POJO;
-	import static io.restassured.RestAssured.*;
-	import static io.restassured.matcher.RestAssuredMatchers.*;
-	import static org.hamcrest.Matchers.*;
-	import static io.restassured.RestAssured.given;
-	import java.io.IOException;
-	import java.util.Map;
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
+import static io.restassured.RestAssured.given;
+import java.io.IOException;
+import java.util.Map;
 
 	@Getter
 	@Setter
-	public class LoginRequest {
+	public class LoginandLogoutRequest {
 	
 
 	    private Login_POJO login_POJO;  
 	    private RequestSpecification requestspecification;
 	    private Response response;
+	
 	    
-	    public LoginRequest() {
+	    public LoginandLogoutRequest() {
 	        this.login_POJO = new Login_POJO();
 	    }
 
@@ -52,7 +51,7 @@ import payload.Login_POJO;
 	        return login_POJO;
 	    }
 
-	    public void setEndpoint(String sheetName, String testCaseID) throws IOException {
+	 /*   public void setEndpoint(String sheetName, String testCaseID) throws IOException {
 	        Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
 
 	        if ("invalid Endpoint".equalsIgnoreCase(testData.get("usecase"))) {
@@ -62,8 +61,25 @@ import payload.Login_POJO;
 	        	String loginPost = enumPackage.Endpoint.Login_POST.getPath(); 
 	        	login_POJO.setEndpoint(loginPost); 
 	        }
-	    }
+	    }*/
+	    public void setEndpoint(String sheetName, String testCaseID) throws IOException {
+	        Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
 
+	        if ("invalidEndpoint".equalsIgnoreCase(testData.get("usecase"))) {
+	            login_POJO.setEndpoint(testData.get("Endpoint"));  
+	        } else {
+	        	String method = testData.get("Method");
+	         	switch (method.toLowerCase()) {
+	         	    case "login":
+	         	        login_POJO.setEndpoint(enumPackage.Endpoint.Login_POST.getPath());
+	         	        break;
+	         	    case "logout":
+	         	    	login_POJO.setEndpoint(enumPackage.Endpoint.Logout_Get.getPath());
+	                break;
+	        }
+	        }
+	    }
+     	
 	    public String getEndpoint() {
 	        return login_POJO.getEndpoint();  
 	    }
@@ -111,9 +127,43 @@ import payload.Login_POJO;
 	                .header("Accept", "application/json")
 	                .contentType("application/json");
 	    }   
-	  
+	    
+	    public void logoutGet(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
+		    Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+		    setEndpoint(sheetName, testCaseID);  // You need to implement this to set your GET/POST endpoint
+
+		    if ("no".equalsIgnoreCase(testData.get("authType"))) {
+		        requestSpecification = TestContext.getRequestSpecification("invalidRequestSpecification");
+		    } else if ("yes".equalsIgnoreCase(testData.get("authType"))) {
+		        requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+		    } else if ("invalidurl".equalsIgnoreCase(testData.get("authType"))) {
+		        requestSpecification = TestContext.getRequestSpecification("invalidURLRequestSpecification");
+		    }
+
+		    if (requestSpecification == null) {
+		        throw new IllegalArgumentException("RequestSpecification cannot be null. Ensure it is properly initialized.");
+		    }
+
+		    if("invalid".equalsIgnoreCase(testData.get("Http"))) {
+		        response = given()
+		            .spec(requestSpecification)
+		            .when()
+		            .post(getEndpoint());  
+		    } else  {
+		        response = given()
+		            .spec(requestSpecification)
+		            .when()
+		            .get(getEndpoint());
+		      
+		    } 
+
+		   
+		    LoggerLoad.info("****** Request Endpoint: " + getEndpoint());
+		    LoggerLoad.info("****** Response: " + response.prettyPrint());
+		    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
+		}
 	    public  void validateSchemaLoginPost(Response response, String schemaPath) {
 	        response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath(schemaPath));
 	    }
-
+	   
 }

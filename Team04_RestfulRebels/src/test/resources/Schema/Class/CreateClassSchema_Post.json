@@ -3,49 +3,49 @@
   "type": "object",
   "properties": {
     "csId": {
-      "type": "integer"
+      "type": ["integer", "null"]
     },
     "batchId": {
-      "type": "integer"
+      "type": ["integer", "null"]
     },
     "classNo": {
-      "type": "integer"
+      "type": ["integer", "null"]
     },
     "classDate": {
-      "type": "string"
+      "type": ["string", "null"]
     },
     "classTopic": {
-      "type": "string"
+      "type": ["string", "null"]
     },
     "classStatus": {
-      "type": "string"
+      "type": ["string", "null"]
     },
     "classStaffId": {
-      "type": "string"
+      "type": ["string", "null"]
     },
     "classDescription": {
-      "type": "string"
+      "type": ["string", "null"]
     },
     "classComments": {
-      "type": "string"
+      "type": ["string", "null"]
     },
     "classNotes": {
-      "type": "string"
+      "type": ["string", "null"]
     },
     "classRecordingPath": {
-      "type": "string"
+      "type": ["string", "null"]
     },
     "batchName": {
-      "type": "null"
+      "type": ["string", "null"]
     },
     "classScheduledDates": {
       "type": "array",
       "items": [
         {
-          "type": "string"
+          "type": ["string", "null"]
         },
         {
-          "type": "string"
+          "type": ["string", "null"]
         }
       ]
     }

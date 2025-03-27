@@ -7,7 +7,7 @@ import org.testng.Assert;
 
 import requestBuilder.ClassRequest;
 import requestBuilder.CommonRequest;
-import requestBuilder.LoginRequest;
+import requestBuilder.LoginandLogoutRequest;
 import common.ExcelReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,35 +16,35 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-public class Login_Step {
+public class LoginandLogout_Step {
     private RequestSpecification requestSpecification;
     private Response response;
-    private LoginRequest loginRequest;
+    private LoginandLogoutRequest loginRequestandlogout;
     private CommonRequest commonRequest;
 
     
-    public Login_Step() {
+    public LoginandLogout_Step() {
       
-        this.loginRequest = new LoginRequest(); // Use the testContext here
+        this.loginRequestandlogout = new LoginandLogoutRequest(); // Use the testContext here
         this.commonRequest = new CommonRequest();
     }
 
     @Given("The Admin creates POST request for login")
     public void the_admin_creates_post_request_for_login() {
-        requestSpecification = loginRequest.setRequestSpecification();
+        requestSpecification = loginRequestandlogout.setRequestSpecification();
     }
 // TC_01_login Valid Credentials
     
     @When("The Admin sends HTTPS POST request for valid credentials scenarios as input {string} and {string}")
     public void the_admin_sends_https_post_request_for_valid_credentials_scenarios_as_input_and(String sheetName, String testCaseID) throws IOException {
-        loginRequest.loginPost(sheetName, testCaseID, requestSpecification);
-        this.response = loginRequest.getResponse();
+    	loginRequestandlogout.loginPost(sheetName, testCaseID, requestSpecification);
+        this.response = loginRequestandlogout.getResponse();
     }
 
     @Then("The Admin get valid credentials response code and message as {string} and {string}")
     public void the_admin_get_valid_credentials_response_code_and_message_as_and(String sheetName, String testCaseID) throws IOException {
         Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
-        this.response = loginRequest.getResponse();
+        this.response = loginRequestandlogout.getResponse();
         String token = response.jsonPath().getString("token");
         commonRequest.validateStatusCode(response, testData);
         commonRequest.validateStatusLine(response, testData);
@@ -59,8 +59,8 @@ public class Login_Step {
     
     @When("The Admin sends HTTPS POST request for invalid username scenarios as input {string} and {string}")
     public void the_admin_sends_https_post_request_for_invalid_username_scenarios_as_input_and(String sheetName, String testCaseID) throws IOException {
-        loginRequest.loginPost(sheetName, testCaseID, requestSpecification);
-        this.response = loginRequest.getResponse();
+    	loginRequestandlogout.loginPost(sheetName, testCaseID, requestSpecification);
+        this.response = loginRequestandlogout.getResponse();
     }
 
     @Then("The Admin get invalid username response code and message as {string} and {string}")
@@ -76,8 +76,8 @@ public class Login_Step {
     
     @When("The Admin sends HTTPS POST request for invalid password scenarios as input {string} and {string}")
     public void the_admin_sends_https_post_request_for_invalid_password_scenarios_as_input_and(String sheetName, String testCaseID) throws IOException {
-        loginRequest.loginPost(sheetName, testCaseID, requestSpecification);
-        this.response = loginRequest.getResponse();
+    	loginRequestandlogout.loginPost(sheetName, testCaseID, requestSpecification);
+        this.response = loginRequestandlogout.getResponse();
     }
 
     @Then("The Admin get invalid password response code and message as {string} and {string}")
@@ -93,8 +93,8 @@ public class Login_Step {
     
     @When("The Admin sends HTTPS POST request for invalid Endpoint scenarios as input {string} and {string}")
     public void the_admin_sends_https_post_request_for_invalid_endpoint_scenarios_as_input_and(String sheetName, String testCaseID) throws IOException {
-        loginRequest.loginPost(sheetName, testCaseID, requestSpecification);
-        this.response = loginRequest.getResponse();
+    	loginRequestandlogout.loginPost(sheetName, testCaseID, requestSpecification);
+        this.response = loginRequestandlogout.getResponse();
     }
 
     @Then("The Admin get invalid Endpoint response code and message as {string} and {string}")
@@ -109,8 +109,8 @@ public class Login_Step {
     
     @When("The Admin sends HTTPS POST request for empty username scenarios as input {string} and {string}")
     public void the_admin_sends_https_post_request_for_empty_username_scenarios_as_input_and(String sheetName, String testCaseID) throws IOException {
-    	loginRequest.loginPost(sheetName, testCaseID, requestSpecification);
-        this.response = loginRequest.getResponse();
+    	loginRequestandlogout.loginPost(sheetName, testCaseID, requestSpecification);
+        this.response = loginRequestandlogout.getResponse();
         
     }
 
@@ -126,8 +126,8 @@ public class Login_Step {
     //TC_06_login empty Password
     @When("The Admin sends HTTPS POST request for empty password scenarios as input {string} and {string}")
     public void the_admin_sends_https_post_request_for_empty_password_scenarios_as_input_and(String sheetName, String testCaseID) throws IOException {
-    	loginRequest.loginPost(sheetName, testCaseID, requestSpecification);
-        this.response = loginRequest.getResponse();
+    	loginRequestandlogout.loginPost(sheetName, testCaseID, requestSpecification);
+        this.response = loginRequestandlogout.getResponse();
        
     }
 
@@ -138,7 +138,46 @@ public class Login_Step {
          commonRequest.validateStatusLine(response, testData);
          commonRequest.validateResponseTime(response);
           
-    }  
+    } 
+  //-------------------------------------------------------------------------------------------------------------------------------------------------
+    //TC_01_logout Invalid Endpoint  
+
+	   @When("The Admin sends HTTPS GET request for Invalid Endpoint scenarios as input {string} and {string}")
+	   public void the_admin_sends_https_get_request_for_invalid_endpoint_scenarios_as_input_and(String sheetName, String testCaseID) throws IOException {
+		   loginRequestandlogout.logoutGet(sheetName, testCaseID, requestSpecification);
+	        this.response = loginRequestandlogout.getResponse();	 
+	  }
+	   
+	   @Then("The Admin gets response code and message as {string} and {string} for logout")
+	   public void the_admin_gets_response_code_and_message_as_and_for_logout(String sheetName, String testCaseID) throws IOException {
+		   Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	         commonRequest.validateStatusCode(response, testData);
+	         commonRequest.validateStatusLine(response, testData);
+	         commonRequest.validateResponseTime(response);
+	   }
+	 //-------------------------------------------------------------------------------------------------------------------------------------------------
+	    //TC_02_logout valid Successfull
+	   
+
+	   @When("The Admin sends HTTPS GET request for logout as {string} and {string}")
+	   public void the_admin_sends_https_get_request_for_logout_as_and(String sheetName, String testCaseID) throws IOException {
+		   loginRequestandlogout.logoutGet(sheetName, testCaseID, requestSpecification);
+	        this.response = loginRequestandlogout.getResponse();
+		  }
+
+	  @Then("The Admin gets response code and message as {string} and {string} for successfull logout")
+	   public void the_admin_gets_response_code_and_message_as_and_for_successfull_logout(String sheetName, String testCaseID) throws IOException {
+		   Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	        commonRequest.validateStatusCode(response, testData);
+	        commonRequest.validateStatusLine(response, testData);
+	        commonRequest.validateResponseTime(response);
+	        commonRequest.validateSuccessMessage(response, testData);
+		   
+}
+
+
+
+
 }
 
 

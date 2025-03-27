@@ -25,17 +25,20 @@ import io.restassured.specification.RequestSpecification;
 import lombok.Getter;
 import lombok.Setter;
 import payload.Class_POJO;
+import payload.Class_Put_POJO;
 
 
 @Getter
 @Setter
 public class ClassRequest {
 	 private Class_POJO class_POJO;  
+	 private Class_Put_POJO class_Put_POJO;
 	    private RequestSpecification requestspecification;
 	    private Response response;
 	
 	public ClassRequest() {
         this.class_POJO = new Class_POJO();
+        this.class_Put_POJO = new Class_Put_POJO();
     }
 	
 
@@ -46,7 +49,8 @@ public class ClassRequest {
 	    // BatchId handling
 	    String batchIdUseCases = testData.get("batchIdUseCase");
 	    if ("valid".equalsIgnoreCase(batchIdUseCases)) {
-	        class_POJO.setBatchId(11881);  // Default valid batchId
+	    	//String BatchId = Utils.get("BatchId", String.class);
+	        class_POJO.setBatchId(11546);  // Default valid batchId
 	    } else {
 	        String batchIdStr = testData.get("batchId");
 	        if (batchIdStr != null && !batchIdStr.trim().isEmpty()) {
@@ -71,6 +75,7 @@ public class ClassRequest {
 	    // ClassStaffId UseCase Handling
 	    String classStaffIdUseCase = testData.get("classStaffIdUseCase");
 	    if ("valid".equalsIgnoreCase(classStaffIdUseCase)) {
+	    	//String StaffId = Utils.get("staffId", String.class);
 	        class_POJO.setClassStaffId("U108");
 	    } else {
 	        class_POJO.setClassStaffId(testData.get("classStaffId"));
@@ -97,11 +102,26 @@ public class ClassRequest {
 	public Class_POJO getclassRequestBody() {
 	    return class_POJO;
 	}
+//------------------------------------------------------------------------------------------------------------------------------------------------
+	//Requestbody for put
+	
+	public void classPutRequestbody(String sheetName, String testCaseID) throws IOException {
+	    Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	    class_Put_POJO.setClassRecordingPath(testData.get("classRecordingPath"));
+	    
+	    // Check usecase and set csId appropriately
+	    if ("invalidCsId".equalsIgnoreCase(testData.get("usecase"))) {
+	        // Possibly from testData.get("csId") instead of classRecordingPath
+	        class_Put_POJO.setCsId((int)Double.parseDouble(testData.get("csId")));  // Corrected
+	    } else {
+	        // Use the correct field for csId if valid
+	    	class_Put_POJO.setCsId(Integer.parseInt(Utils.get("csId", String.class)));
+	    }
+	}
 
-	 
-	 
-	 
-	 
+	public Class_Put_POJO getClassPutRequestbody() {
+	    return class_Put_POJO;
+	}
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
 	 
 	
@@ -170,12 +190,19 @@ public class ClassRequest {
 //----------------------------------------------------------------------------------------------------------------------------------------------------	    
 //Post request
 		 public void classPost(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
+			 Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
 			 classPostRequestbody(sheetName, testCaseID);
 		        setEndpointPostClass(sheetName, testCaseID);
 		        
-		     
 		       
-			  requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+		       
+		        if ("invalid".equalsIgnoreCase(testData.get("authType"))) {
+				    requestSpecification = TestContext.getRequestSpecification("invalidRequestSpecification");
+				    }else if ("valid".equalsIgnoreCase(testData.get("authType"))) {
+				    	 requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+				    }else if ("invalidurl".equalsIgnoreCase(testData.get("authType"))) {
+				    	requestSpecification = TestContext.getRequestSpecification("invalidURLRequestSpecification");
+				    }
 			 if (requestSpecification == null) {
 			        throw new IllegalArgumentException("RequestSpecification cannot be null. Ensure it is properly initialized.");
 			    }
@@ -215,9 +242,15 @@ public class ClassRequest {
 	//Post without Payload	 
 		 
 		 public void classPostNoPayload(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
-			 
+			 Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
 		        setEndpointPostClass(sheetName, testCaseID);
-			  requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+		        if ("invalid".equalsIgnoreCase(testData.get("authType"))) {
+				    requestSpecification = TestContext.getRequestSpecification("invalidRequestSpecification");
+				    }else if ("valid".equalsIgnoreCase(testData.get("authType"))) {
+				    	 requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+				    }else if ("invalidurl".equalsIgnoreCase(testData.get("authType"))) {
+				    	requestSpecification = TestContext.getRequestSpecification("invalidURLRequestSpecification");
+				    }
 			 if (requestSpecification == null) {
 			        throw new IllegalArgumentException("RequestSpecification cannot be null. Ensure it is properly initialized.");
 			    }
@@ -233,138 +266,130 @@ public class ClassRequest {
 		        LoggerLoad.info("****** Status Code: " + response.getStatusCode());
 		        
 		 }
-		 
-//-----------------------------------------------------------------------------------------------------------------------------------------------------
-		 //Post invalid Url
-		 public void classPostInvalidUrl(String sheetName, String testCaseID,RequestSpecification requestSpecification) throws IOException {
-			 requestSpecification = TestContext.getRequestSpecification("invalidRequestSpecification");
-		        setEndpointPostClass(sheetName, testCaseID);
 
-			 response = given()
-				        .spec(requestspecification)
-				        .when()
-				        .body(getclassRequestBody())  
-				        .post(getEndpoint());
-		            
-		        LoggerLoad.info("****** Request Body: " + class_POJO);
-		        LoggerLoad.info("****** Response: " + response.prettyPrint());
-		        LoggerLoad.info("****** Status Code: " + response.getStatusCode());     
-		              
-		 }
-//---------------------------------------------------------------------------------------------------------------------------------------------------		 
-		//Get all
-		 public void classGetwithoutPathParam(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
-			    setEndpointPostClass(sheetName, testCaseID);  // You need to implement this to set your GET endpoint
-			    
-			    requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
-			     response = given()
+//------------------------------------------------------------------------------------------------------------------------------------------------
+		 public void classGetAll(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
+			    Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+			    setEndpointPostClass(sheetName, testCaseID);  // You need to implement this to set your GET/POST endpoint
+
+			    // Determine the request specification based on authType from test data
+			    if ("invalid".equalsIgnoreCase(testData.get("authType"))) {
+			        requestSpecification = TestContext.getRequestSpecification("invalidRequestSpecification");
+			    } else if ("valid".equalsIgnoreCase(testData.get("authType"))) {
+			        requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+			    } else if ("invalidurl".equalsIgnoreCase(testData.get("authType"))) {
+			        requestSpecification = TestContext.getRequestSpecification("invalidURLRequestSpecification");
+			    }
+
+			    // Ensure the requestSpecification is not null
+			    if (requestSpecification == null) {
+			        throw new IllegalArgumentException("RequestSpecification cannot be null. Ensure it is properly initialized.");
+			    }
+
+		
+			    if("invalid".equalsIgnoreCase(testData.get("Http"))) {
+			        response = given()
 			            .spec(requestSpecification)
 			            .when()
-			            .get(getEndpoint()); // getEndpoint() should return the full URL for the GET request
+			            .post(getEndpoint());  
+			    } else  {
+			        response = given()
+			            .spec(requestSpecification)
+			            .when()
+			            .get(getEndpoint());  
+			    } 
 
-			    LoggerLoad.info("****** GET Request Endpoint: " + getEndpoint());
+			   
+			    LoggerLoad.info("****** Request Endpoint: " + getEndpoint());
 			    LoggerLoad.info("****** Response: " + response.prettyPrint());
 			    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
 			}
-//-----------------------------------------------------------------------------------------------------------------------------------------------------
-		 //Class Gell all Invalid Method 
-		 
-		 public void classGetinvalidMethod(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
-			    setEndpointPostClass(sheetName, testCaseID);  // You need to implement this to set your GET endpoint
-			    
-			    requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
-			     response = given()
-			            .spec(requestSpecification)
-			            .when()
-			            .post(getEndpoint()); // getEndpoint() should return the full URL for the GET request
+//-------------------------------------------------------------------------//----------------------------------------------------------------------		 
+		 public void classGetByIdAndTopic(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
+			    Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+			    setEndpointPostClass(sheetName, testCaseID);  // Implement this to set your GET/POST endpoint
 
-			    LoggerLoad.info("****** GET Request Endpoint: " + getEndpoint());
+			    String IdValue = "";
+			    String usecase = testData.get("usecase");
+			    // Determine the IdValue based on the use case from test data
+			    if ("byBatchId".equalsIgnoreCase(usecase)) {
+			        IdValue = "11546";  
+			    } else if ("byinvalidBatchId".equalsIgnoreCase(usecase)) {
+			        IdValue = String.valueOf((int) Double.parseDouble(testData.get("batchId")));
+			    } else if ("byClassId".equalsIgnoreCase(usecase)) {
+			        IdValue = Utils.get("csId", String.class);  
+			    } else if ("byinvalidClassId".equalsIgnoreCase(usecase)) {
+			        IdValue = testData.get("ClassId");
+			    } else if ("byTopic".equalsIgnoreCase(usecase) || "byinvalidTopic".equalsIgnoreCase(usecase)) {
+			        IdValue = testData.get("classTopic");
+			    } else if ("byStaffId".equalsIgnoreCase(usecase)){
+			        IdValue = "U108";
+			    }else if("	".equalsIgnoreCase(usecase)) {
+			    	IdValue = testData.get("classStaffId");
+			    }
+
+
+			    if ("invalid".equalsIgnoreCase(testData.get("authType"))) {
+			        requestSpecification = TestContext.getRequestSpecification("invalidRequestSpecification");
+			    } else if ("valid".equalsIgnoreCase(testData.get("authType"))) {
+			        requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+			    } else if ("invalidurl".equalsIgnoreCase(testData.get("authType"))) {
+			        requestSpecification = TestContext.getRequestSpecification("invalidURLRequestSpecification");
+			    }
+
+			   
+			    if (requestSpecification == null) {
+			        throw new IllegalArgumentException("RequestSpecification cannot be null. Ensure it is properly initialized.");
+			    }
+
+			    // Perform the request based on the scenario
+			    if("invalid".equalsIgnoreCase(testData.get("Http"))) {
+			        response = given()
+			            .spec(requestSpecification)
+			            .pathParam("id", IdValue)
+			            .when()
+			            .delete(getEndpoint() + "{id}"); 
+			    } else {
+			        response = given()
+			            .spec(requestSpecification)
+			            .pathParam("id", IdValue)
+			            .when()
+			            .get(getEndpoint() + "{id}"); 
+			         
+			    } 
+
+			   
+			    LoggerLoad.info("****** Id used: " + IdValue);
+			    LoggerLoad.info("****** Request Endpoint: " + getEndpoint());
 			    LoggerLoad.info("****** Response: " + response.prettyPrint());
 			    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
 			}
-//---------------------------------------------------------------------------------------------------------------------------------------------------
-		 //Get by Batch id, Class id, Topic
 
-		 public void classGetbyIdandTopic(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
-			 Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
-			 setEndpointPostClass(sheetName, testCaseID); 
-			 String IdValue = "";
 
-			 if ("byBatchId".equalsIgnoreCase(testData.get("usecase"))) {
-			   // IdValue = Utils.get("BatchId", String.class);
-				   IdValue = "11881";
-				   // String BatchId = Utils.get("ValidBatchId", String.class);
-			 }else if ("byinvalidBatchId".equalsIgnoreCase(testData.get("usecase"))) {
-				 IdValue = String.valueOf((int) Double.parseDouble(testData.get("batchId")));
-			 }else if("byClassId".equalsIgnoreCase(testData.get("usecase"))) {	
-				  IdValue = Utils.get("csId", String.class);
-			 }else if("byinvalidClassId".equalsIgnoreCase(testData.get("usecase"))) {
-				  IdValue = testData.get("ClassId");
-			 }else if("byTopic".equalsIgnoreCase(testData.get("usecase"))) {
-				 IdValue = testData.get("Topic");	 
-			 }else if("byinvalidTopic".equalsIgnoreCase(testData.get("usecase"))) {
-				 IdValue = testData.get("Topic");
-			 }
-			    requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
-			     response = given()
-			            .spec(requestSpecification)
-			            .pathParam("id", IdValue)
-			            .when()
-			            .get(getEndpoint() + "{id}");
-			         
-			     
-			     LoggerLoad.info("****** Id used: " + IdValue);
-			    LoggerLoad.info("****** GET Request Endpoint: " + getEndpoint());
-			    LoggerLoad.info("****** Response: " + response.prettyPrint());
-			    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
-			
-		 }
-//---------------------------------------------------------------------------------------------------------------------------------------------------
-		 //Get by Batch id, Class id, Topic Invalid Method
-		 
-		 public void classGetbyIdandTopicInvalidMethod(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
-			 Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
-			 setEndpointPostClass(sheetName, testCaseID); 
-			 String IdValue = "";
-
-			 if ("byBatchId".equalsIgnoreCase(testData.get("usecase"))) {
-			   //  IdValue = String.valueOf((int) Double.parseDouble(Utils.get("BatchId", String.class)));
-				   IdValue = "11881";
-				   // String BatchId = Utils.get("ValidBatchId", String.class);
-			 }else if ("byinvalidBatchId".equalsIgnoreCase(testData.get("usecase"))) {
-				 IdValue = String.valueOf((int) Double.parseDouble(testData.get("batchId")));
-			 }else if("byClassId".equalsIgnoreCase(testData.get("usecase"))) {
-				  IdValue = Utils.get("csId", String.class);
-			 }else if("byinvalidClassId".equalsIgnoreCase(testData.get("usecase"))) {
-				  IdValue = testData.get("ClassId");
-			 }else if("byTopic".equalsIgnoreCase(testData.get("usecase"))) {
-				 IdValue = testData.get("Topic");	 
-			 }else if("byinvalidTopic".equalsIgnoreCase(testData.get("usecase"))) {
-				 IdValue = testData.get("Topic");
-			 }
-			    requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
-			     response = given()
-			            .spec(requestSpecification)
-			            .pathParam("id", IdValue)
-			            .when()
-			            .post(getEndpoint() + "{id}");
-			         
-			     
-			     LoggerLoad.info("****** Id used: " + IdValue);
-			    LoggerLoad.info("****** GET Request Endpoint: " + getEndpoint());
-			    LoggerLoad.info("****** Response: " + response.prettyPrint());
-			    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
-			
-		 }
 		 
 		//------------------------------------------------------------------------------------------------------------------------------------------------------
 		 //Delete Class 
 		 
 		 public void deleteClass(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
+			 String csId;
 			    setEndpointPostClass(sheetName, testCaseID);  // You need to implement this to set your GET endpoint
-				   String csId = Utils.get("csId", String.class);
+			    Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+			    if ("invalidClassId".equalsIgnoreCase(testData.get("usecase"))) {
+			    	
+			    	 csId = testData.get("ClassId");
+			    }else {
+			    
+				    csId = Utils.get("csId", String.class);
+			    }
+			    
 
-			    requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+			    if ("invalid".equalsIgnoreCase(testData.get("authType"))) {
+				    requestSpecification = TestContext.getRequestSpecification("invalidRequestSpecification");
+				    }else if ("valid".equalsIgnoreCase(testData.get("authType"))) {
+				    	 requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+				    }else if ("invalidurl".equalsIgnoreCase(testData.get("authType"))) {
+				    	requestSpecification = TestContext.getRequestSpecification("invalidURLRequestSpecification");
+				    }
 			     response = given()
 			            .spec(requestSpecification)
 			            .pathParam("id", csId)
@@ -372,11 +397,107 @@ public class ClassRequest {
 			            .delete(getEndpoint() + "{id}"); 
 			    
 			    
-			     LoggerLoad.info("****** DELETE Request Endpoint: " + getEndpoint().replace("{id}", csId));
+			     LoggerLoad.info("****** DELETE Request Endpoint: " + getEndpoint() + csId);
 			    LoggerLoad.info("****** Response: " + response.prettyPrint());
 			    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
 			}
-		 	 
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------		 
+		// Put class
+		 public void classPut(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
+			 String csId;
+			 Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+			 classPostRequestbody(sheetName, testCaseID);
+		        setEndpointPostClass(sheetName, testCaseID);
+		       
+		        if ("invalid".equalsIgnoreCase(testData.get("authType"))) {
+				    requestSpecification = TestContext.getRequestSpecification("invalidRequestSpecification");
+				    }else if ("valid".equalsIgnoreCase(testData.get("authType"))) {
+				    	 requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+				    }else if ("invalidurl".equalsIgnoreCase(testData.get("authType"))) {
+				    	requestSpecification = TestContext.getRequestSpecification("invalidURLRequestSpecification");
+				    }
+			 if (requestSpecification == null) {
+			        throw new IllegalArgumentException("RequestSpecification cannot be null. Ensure it is properly initialized.");
+			    }
+			 
+		 if ("byinvalidClassId".equalsIgnoreCase(testData.get("usecase"))) {
+		    	 csId = testData.get("ClassId");
+		    }else {
+			    csId = Utils.get("csId", String.class);
+		    }
+
+		        // Making the POST request
+		        response = given()
+		            .spec(requestSpecification)
+		            .pathParam("id", csId)
+		            .body(getclassRequestBody())  
+		            .when()
+		            .put(getEndpoint() + "{id}");
+		            									
+		        LoggerLoad.info("****** Request Body: " + class_POJO);
+		        LoggerLoad.info("****** Response: " + response.prettyPrint());
+		        LoggerLoad.info("****** Status Code: " + response.getStatusCode());
+		        		        
+		 } 
+
+
+		
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+		 public void classPutRecordingpath(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
+			    String csId;
+			    Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+			    
+			    // Set the request body for class update
+			    classPutRequestbody(sheetName, testCaseID);
+			    setEndpointPostClass(sheetName, testCaseID);
+
+			    // Determine the request specification based on authType
+			    if ("invalid".equalsIgnoreCase(testData.get("authType"))) {
+			        requestSpecification = TestContext.getRequestSpecification("invalidRequestSpecification");
+			    } else if ("valid".equalsIgnoreCase(testData.get("authType"))) {
+			        requestSpecification = TestContext.getRequestSpecification("validRequestSpecification");
+			    } else if ("invalidurl".equalsIgnoreCase(testData.get("authType"))) {
+			        requestSpecification = TestContext.getRequestSpecification("invalidURLRequestSpecification");
+			    }
+
+			    // Ensure requestSpecification is valid
+			    if (requestSpecification == null) {
+			        throw new IllegalArgumentException("RequestSpecification cannot be null. Ensure it is properly initialized.");
+			    }
+
+			    // Determine the class ID based on the use case
+			    if ("byinvalidClassId".equalsIgnoreCase(testData.get("usecase"))) {
+			        csId = testData.get("ClassId");
+			    } else {
+			        csId = Utils.get("csId", String.class);
+			    }
+			    
+
+			    if("invalid".equalsIgnoreCase(testData.get("Http"))) {
+			        response = given()
+			            .spec(requestSpecification)
+			            .pathParam("id", csId)
+			            .body(getClassPutRequestbody())  
+			            .when()
+			            .delete(getEndpoint() + "{id}");
+			    } else {
+			        response = given()
+			            .spec(requestSpecification)
+			            .pathParam("id", csId)
+			            .body(getClassPutRequestbody())  
+			            .when()
+			            .put(getEndpoint() + "{id}");
+			    }
+			    // Log the request body, response, and status code
+			    LoggerLoad.info("****** Request Body: " + class_POJO);
+			    LoggerLoad.info("****** Response: " + response.prettyPrint());
+			    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
+			}
+
+		 
+		 
+		 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 		 public static void validateDataClassPost(Class_POJO expectedPOJO, Response response) {
 		        // Parse the response body to extract actual values
@@ -414,47 +535,57 @@ public class ClassRequest {
 		 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 		 public void cleanupClass(String key) {
-		        // Retrieve the csId_list from the Utils (which stores a list of csIds)
-		        List<Object> csId_list = Utils.get(key, List.class);
-		        if (csId_list != null && !csId_list.isEmpty()) {
-		            // Iterate over each csId in the list
-		            for (Object csId1 : csId_list) {
-		                String csId = String.valueOf(csId1);  // Convert the Object to String
+			    // Retrieve the csId_list from the Utils (which stores a list of csIds)
+			    List<Object> csId_list = Utils.get(key, List.class);
 
-		                deleteClassforcleanup(csId);
-		                System.out.println("Deleted csId: " + csId);
-		            }
+			    if (csId_list != null && !csId_list.isEmpty()) {
+			        // Iterate over each csId in the list and delete it
+			        for (Object csId1 : csId_list) {
+			            String csId = String.valueOf(csId1);  // Convert the Object to String
 
-		            Utils.remove(key);  // This removes the "csId_list" from Utils
-		            System.out.println("All csIds from the list have been deleted and cleaned up from the Utils.");
-		        } else {
-		            System.out.println("No csIds found in the list to delete.");
-		        }
+			            // Perform the cleanup for each csId individually
+			            deleteClassforcleanup(csId);  // Pass only one csId at a time to delete it
+			            System.out.println("Deleted csId: " + csId);
+			        }
+
+			        // After deleting all csIds, remove the list from the Utils (clean up storage)
+			        Utils.remove(key);
+			        Utils.remove("csId");
+			        System.out.println("All csIds from the list have been deleted and cleaned up from the Utils.");
+			    } else {
+			        System.out.println("No csIds found in the list to delete.");
+			    }
+			}
+
+
+		 public void deleteClassforcleanup(String csId) {
+			 String endpoint = "/deleteByClass/{id}";
+			    requestspecification = TestContext.getRequestSpecification("validRequestSpecification");
+
+			    // Send DELETE request for the given csId. Ensure you're sending only one csId at a time.
+			    response = given()
+			            .spec(requestspecification)
+			            .pathParam("id", csId)  // Correctly pass one csId at a time in the path
+			            .when()
+			            .delete(endpoint);
+
+			    // Logging for debugging
+			    LoggerLoad.info("****** DELETE Request Endpoint: " + endpoint.replace("{id}", csId));
+			    LoggerLoad.info("****** Response: " + response.prettyPrint());
+			    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
+
+			    if (response.getStatusCode() != 200) {
+			        LoggerLoad.error("Failed to delete csId: " + csId + ". Status Code: " + response.getStatusCode());
+			    } else {
+			        LoggerLoad.info("Successfully deleted csId: " + csId);
+			    }
+			}
+
+		    
+		    public Response getResponse() {
+		        return response;
 		    }
 
-		    // Method to delete a class by its csId
-		    public void deleteClassforcleanup(String csId) {
-		        String endpoint = Endpoint.Class_Delete_byClassId.getPath(); 
-		        requestspecification = TestContext.getRequestSpecification("validRequestSpecification");
-
-		        // Send DELETE request for the given csId
-		        response = given()
-		                .spec(requestspecification)
-		                .pathParam("id", csId)  // Set the csId in the URL path
-		                .when()
-		                .delete(endpoint + "{id}");
-
-		
-		        LoggerLoad.info("****** DELETE Request Endpoint: " + endpoint.replace("{id}", csId));
-		        LoggerLoad.info("****** Response: " + response.prettyPrint());
-		        LoggerLoad.info("****** Status Code: " + response.getStatusCode());
-
-		        if (response.getStatusCode() != 200) {
-		            LoggerLoad.error("Failed to delete csId: " + csId + ". Status Code: " + response.getStatusCode());
-		        } else {
-		            LoggerLoad.info("Successfully deleted csId: " + csId);
-		        }
-		    }
 		
 			
 			}
