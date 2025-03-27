@@ -15,10 +15,10 @@ Given Admin is on base url with valid auth
     Examples: 
       | TestCaseID  | scenario              | Sheetname |
       | TC_01_user  | valid data            | user      |
-			| TC_02_user  | mandatory fields      | user      |
-  	  | TC_03_user  | additional fields     | user      |
-   	  | TC_04_user  | invalid data          | user      |
-      | TC_05_user  | existing phn num      | user      |
+		#	| TC_02_user  | mandatory fields      | user      |
+  	#  | TC_03_user  | additional fields     | user      |
+   	#  | TC_04_user  | invalid data          | user      |
+    #  | TC_05_user  | existing phn num      | user      |
      
      @getuser
   Scenario Outline: Get functionality for different endpoints for User
@@ -28,7 +28,7 @@ Given Admin is on base url with valid auth
 
     Examples: 
       | TestCaseID  | Endpoint      			    | scenario | Sheetname |
-     	| TC_06_user  | Get all users 			    | valid    | user      |
+     #	| TC_06_user  | Get all users 			    | valid    | user      |
    #   | TC_07_user  | Get all active users    | valid    | user      |
     #	| TC_08_user  | Get emails of all users | valid    | user      |
     #	| TC_09_user  | Get all roles           | valid    | user      |

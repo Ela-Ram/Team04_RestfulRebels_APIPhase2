@@ -49,8 +49,8 @@ Feature: Class Module Functionality
 
     Examples: 
       | TestCaseID      | scenario      | Sheetname |
-    #  | TC_01_class_del | valid classID | class     |
-     # | TC_02_class_del | valid classID | class     |
+     | TC_01_class_del | valid classID | class     |
+     | TC_02_class_del | valid classID | class     |
       
       
       
