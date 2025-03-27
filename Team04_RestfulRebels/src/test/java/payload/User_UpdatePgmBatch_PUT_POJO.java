@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import payload.User_UpdateRole_PUT_POJO.UserRoleList;
+import payload.User_UpdateRole_PUT_POJO.UserRole;
 
 @Data
 @NoArgsConstructor
