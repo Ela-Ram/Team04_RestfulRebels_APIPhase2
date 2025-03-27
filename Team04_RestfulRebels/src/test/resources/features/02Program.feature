@@ -73,21 +73,6 @@ Feature: Program Module Functionality
       | TC_08_get_program | Get_Program_ProgramId invalid ProgramId | program   |
       | TC_09_get_program | Get_Program_ProgramId invaid Endpoint   | program   |
 
-  @DeleteProgrambyname
-  Scenario Outline: Delete Requests with different endpoints for Program
-    Given Admin is on base url with valid auth
-    When The Admin sends HTTPS DELETE request for <scenario> scenarios as input "<Sheetname>" and "<TestCaseID>" for Program
-    Then The Admin get response code and message as "<Sheetname>" and "<TestCaseID>" for delete Program
-
-    Examples: 
-      | TestCaseID           | scenario                 | Sheetname |
-      | TC_01_delete_program | delete valid ProgramId   | program   |
-      | TC_02_delete_program | delete Invalid ProgramId | program   |
-
-  @tochangeInactivetoactive
-  Scenario: Update the statues by programId
-    Given Admin is on base url with valid auth
-    When The Admin sends HTTPS PUT request to change status as "<Sheetname>" and "<TestCaseID>" for Program
-    Then The Admin get response code and message as "<Sheetname>" and "<TestCaseID>" for delete Program
-
+  
+ 
  

@@ -444,11 +444,7 @@ public class ProgramRequest {
 	        JsonPath jsonPath = response.jsonPath();
 
 	        // Validate ProgramDescription
-	        Assert.assertEquals(expectedPOJO.getProgramDescription(), jsonPath.getString("programDescription"), "Mismatch in programDescription");
-
-	        
-//	        // Validate classDate
-//	        Assert.assertEquals(expectedPOJO.getClassDate(), jsonPath.getString("classDate"), "Mismatch in classDate");
+	        Assert.assertEquals(expectedPOJO.getProgramDescription(), jsonPath.getString("programDescription"), "Mismatch in programDescription");	        // Validate classDate
 
 	        // Validate ProgramName
 	        Assert.assertEquals(expectedPOJO.getProgramName(), jsonPath.getString("programName"), "Mismatch in ProgramName");
@@ -457,105 +453,7 @@ public class ProgramRequest {
 	        Assert.assertEquals(expectedPOJO.getProgramStatus(), jsonPath.getString("programStatus"), "Mismatch in ProgramStatus");
 
 	      
-	       
-	    }
-	 
-//----------------------------------------------------------------------------------------------------------------------------------------------
-
-//  	public void cleanupProgramID(String key) {
-//  		
-//	    // Retrieve the programId_list from the Utils (which stores a list of programIds)
-//	    List<Object> programId_list = Utils.get(key, List.class);
-//	    if (programId_list != null && !programId_list.isEmpty()) {
-//	        // Iterate over each programId in the list and delete it
-//	        for (Object programId1 : programId_list) {
-//	            String programId = String.valueOf(programId1);  // Convert the Object to String
-//
-//	            // Perform the cleanup for each csId individually
-//	            deleteProgramIdforcleanup(programId);  // Pass only one programId at a time to delete it
-//	            LoggerLoad.info("Deleted programId: " + programId);
-//	        }
-//
-//	        // After deleting all programIds, remove the list from the Utils (clean up storage)
-//	        Utils.remove(key);
-//	        Utils.remove("programId");
-//	        LoggerLoad.info("All programIds from the list have been deleted and cleaned up from the Utils.");
-//	    } else {
-//	        LoggerLoad.info("No programIds found in the list to delete.");
-//	    }
-//	}
-//  	
-//  	public void deleteProgramIdforcleanup(String programId) {
-//		 String endpoint = "/deletebyprogid/{programid}";
-//		    requestspecification = TestContext.getRequestSpecification("validRequestSpecification");
-//
-//		    // Send DELETE request for the given programId. Ensure you're sending only one programId at a time.
-//		    response = given()
-//		            .spec(requestspecification)
-//		            .pathParam("programid", programId)  // Correctly pass one programId at a time in the path
-//		            .when()
-//		            .delete(endpoint);
-//
-//		    // Logging for debugging
-//		    LoggerLoad.info("****** DELETE Request Endpoint: " + endpoint.replace("{programid}", programId));
-//		    LoggerLoad.info("****** Response: " + response.prettyPrint());
-//		    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
-//
-//		    if (response.getStatusCode() != 200) {
-//		        LoggerLoad.error("Failed to delete programId: " + programId + ". Status Code: " + response.getStatusCode());
-//		    } else {
-//		        LoggerLoad.info("Successfully deleted programId: " + programId);
-//		    }
-//		}
-//
-//	//-------------------------------------------------------------------------------------------------------------------------------    
-//	   
-//public void cleanupProgramName(String key) {
-//  		
-//	    // Retrieve the programName_list from the Utils (which stores a list of programIds)
-//	    List<Object> programName_list = Utils.get(key, List.class);
-//	    if (programName_list != null && !programName_list.isEmpty()) {
-//	        // Iterate over each programId in the list and delete it
-//	        for (Object programName1 : programName_list) {
-//	            String programName = String.valueOf(programName1);  // Convert the Object to String
-//
-//	            // Perform the cleanup for each programName individually
-//	            deleteProgramNameforcleanup(programName);  // Pass only one programName at a time to delete it
-//	            LoggerLoad.info("Deleted programName: " + programName);
-//	        }
-//
-//	        // After deleting all programNames, remove the list from the Utils (clean up storage)
-//	        Utils.remove(key);
-//	        Utils.remove("programName");
-//	        LoggerLoad.info("All programNames from the list have been deleted and cleaned up from the Utils.");
-//	    } else {
-//	        LoggerLoad.info("No programNames found in the list to delete.");
-//	    }
-//	}
-//  	
-//  	public void deleteProgramNameforcleanup(String programName) {
-//		 String endpoint = "/deletebyprogid/{programname}";
-//		    requestspecification = TestContext.getRequestSpecification("validRequestSpecification");
-//
-//		    // Send DELETE request for the given programId. Ensure you're sending only one programId at a time.
-//		    response = given()
-//		            .spec(requestspecification)
-//		            .pathParam("programname", programName)  // Correctly pass one programId at a time in the path
-//		            .when()
-//		            .delete(endpoint);
-//
-//		    // Logging for debugging
-//		    LoggerLoad.info("****** DELETE Request Endpoint: " + endpoint.replace("{programname}", programName));
-//		    LoggerLoad.info("****** Response: " + response.prettyPrint());
-//		    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
-//
-//		    if (response.getStatusCode() != 200) {
-//		        LoggerLoad.error("Failed to delete programName: " + programName + ". Status Code: " + response.getStatusCode());
-//		    } else {
-//		        LoggerLoad.info("Successfully deleted programName: " + programName);
-//		    }
-//		}
-  	 
+  	 }
   	 
   	 
   	public void cleanupPrograms(String key, String pathVariableName, String endpointTemplate) {

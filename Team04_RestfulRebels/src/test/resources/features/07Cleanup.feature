@@ -1,4 +1,4 @@
-@LMS
+@LMS @cleanup
 
 Feature: User Module Functionality
 
@@ -46,4 +46,11 @@ Scenario: Cleanup all the ProgramId Generated
  Scenario: Cleanup all the UserId Generated
 	Given Admin is on base url with valid auth
   When The Admin sends HTTPS DELETE request to clean up userid
+  Then The Admin gets success code
+  
+    
+@cleanBatch
+ Scenario: Cleanup all the UserId Generated
+	Given Admin is on base url with valid auth
+  When The Admin sends HTTPS DELETE request to clean up BatchId
   Then The Admin gets success code

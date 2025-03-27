@@ -113,17 +113,6 @@ public class CommonRequest {
         softAssert.assertAll();  
     }
 
-    public void validateSuccessMessage(Response response, Map<String, String> testData) {
-        SoftAssert softAssert = new SoftAssert(); 
-
-        String expectedMessage = testData.get("expectedSuccessMessage");
-        String actualMessage = response.getBody().asString(); 
-        softAssert.assertEquals(actualMessage, expectedMessage, "Success message mismatch!");
-
-        LoggerLoad.info("Success message validated. Response: " + actualMessage);
-
-        softAssert.assertAll(); 
-    }
-
+   
 
 }
