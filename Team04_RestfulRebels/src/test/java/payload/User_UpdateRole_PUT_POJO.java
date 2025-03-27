@@ -14,12 +14,12 @@ import lombok.NoArgsConstructor;
 
 public class User_UpdateRole_PUT_POJO {
 
-	 private List<UserRoleList> userRoleList;
+	 private List<UserRole> userRoleList;
 	 
 	 @Data
 	    @NoArgsConstructor
 	    @AllArgsConstructor
-	    public static class UserRoleList {
+	    public static class UserRole {
 	        private String roleId;
 	        private String userRoleStatus;
 	    }
