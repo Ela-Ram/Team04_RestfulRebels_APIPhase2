@@ -1,18 +1,20 @@
 package payload;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import payload.User_POJO.UserLogin;
+import payload.User_POJO.UserRoleMap;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User_POJO {
-
+public class User_PUT_POJO {
+	
 	private String userComments;
     private String userEduPg;
     private String userEduUg;
@@ -21,28 +23,20 @@ public class User_POJO {
     private String userLinkedinUrl;
     private String userLocation;
     private String userMiddleName;
+    private String userLoginEmail;
+    private String userId;
     private String userPhoneNumber;
-    private List<UserRoleMap> userRoleMaps;
     private String userTimeZone;
     private String userVisaStatus;
-    private UserLogin userLogin;
+
     
-
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class UserRoleMap {
-        private String roleId;
-        private String userRoleStatus;
-    }
-
-    @Data
+   /* @Data
     @NoArgsConstructor
     @AllArgsConstructor
     public static class UserLogin {
         private String loginStatus;
         private String userLoginEmail;
-    }
+    }*/
     
     @JsonIgnore
     private String endpoint;

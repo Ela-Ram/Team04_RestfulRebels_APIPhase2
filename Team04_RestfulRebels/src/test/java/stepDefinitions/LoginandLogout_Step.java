@@ -9,6 +9,7 @@ import requestBuilder.ClassRequest;
 import requestBuilder.CommonRequest;
 import requestBuilder.LoginandLogoutRequest;
 import common.ExcelReader;
+import common.TestContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -174,11 +175,31 @@ public class LoginandLogout_Step {
 	        commonRequest.validateSuccessMessage(response, testData);
 		   
 }
-
-
-
-
-}
+	  
+	  //Logout Noauth
+	  @Given("Admin is on base url with no auth")
+	  public void admin_is_on_base_url_with_no_auth() {
+	  	RequestSpecification invalidRequestSpecifications= commonRequest.basewithNoauth();
+	  	 TestContext.setRequestSpecification("invalidRequestSpecification", invalidRequestSpecifications);
+	  	 
+	  }
+	  @When("The Admin sends HTTPS GET request for logout as {string} and {string} for no auth")
+			  public void the_admin_sends_https_get_request_for_logout_as_and_for_no_auth(String sheetName, String testCaseID) throws IOException {
+		  loginRequestandlogout.logoutGet(sheetName, testCaseID, requestSpecification);
+	        this.response = loginRequestandlogout.getResponse();
+		   
+		}
+		
+		@Then("The Admin gets response code and message as {string} and {string} for logout for no auth")
+		public void the_admin_gets_response_code_and_message_as_and_for_logout_for_no_auth(String sheetName, String testCaseID) throws IOException {
+			 Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+		        commonRequest.validateStatusCode(response, testData);
+		        commonRequest.validateStatusLine(response, testData);
+		   
+		}
+		
+		
+		}
 
 
 

@@ -548,11 +548,7 @@ public void the_admin_sends_https_delete_request_for_invalid_class_id_scenarios_
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 // TC_01_class_noAuth Unauthorized Scenarios createclass
-@Given("Admin is on base url with no auth")
-public void admin_is_on_base_url_with_no_auth() {
-	RequestSpecification invalidRequestSpecifications= commonRequest.basewithNoauth();
-	 TestContext.setRequestSpecification("invalidRequestSpecification", invalidRequestSpecifications);
-}
+
 
 @When("The Admin sends createclass request with no auth as input {string} and {string} for class")
 public void the_admin_sends_createclass_request_with_no_auth_as_input_and_for_class(String sheetName, String testCaseID) throws IOException {

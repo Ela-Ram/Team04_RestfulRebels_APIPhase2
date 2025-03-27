@@ -10,7 +10,6 @@ import java.util.Map;
 
 import org.testng.Assert;
 
-import appHook.Hooks;
 import common.ConfigReader;
 import common.ExcelReader;
 import common.LoggerLoad;
@@ -49,8 +48,9 @@ public class ClassRequest {
 	    // BatchId handling
 	    String batchIdUseCases = testData.get("batchIdUseCase");
 	    if ("valid".equalsIgnoreCase(batchIdUseCases)) {
-	    	//String BatchId = Utils.get("BatchId", String.class);
-	        class_POJO.setBatchId(11546);  // Default valid batchId
+	    	String BatchId = Utils.get("batchId", String.class);
+	    	class_POJO.setBatchId((int) Double.parseDouble(BatchId));
+	       
 	    } else {
 	        String batchIdStr = testData.get("batchId");
 	        if (batchIdStr != null && !batchIdStr.trim().isEmpty()) {
@@ -72,11 +72,12 @@ public class ClassRequest {
 	    class_POJO.setClassTopic(testData.get("classTopic"));
 	    class_POJO.setClassStatus(testData.get("classStatus"));
 
-	    // ClassStaffId UseCase Handling
+	    
 	    String classStaffIdUseCase = testData.get("classStaffIdUseCase");
 	    if ("valid".equalsIgnoreCase(classStaffIdUseCase)) {
-	    	//String StaffId = Utils.get("staffId", String.class);
-	        class_POJO.setClassStaffId("U108");
+	    	String StaffId = Utils.get("userId", String.class);
+	    	class_POJO.setClassStaffId(StaffId);
+	       // class_POJO.setClassStaffId("U108");// remove this after chaining is implemebted
 	    } else {
 	        class_POJO.setClassStaffId(testData.get("classStaffId"));
 	    }
@@ -109,12 +110,11 @@ public class ClassRequest {
 	    Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
 	    class_Put_POJO.setClassRecordingPath(testData.get("classRecordingPath"));
 	    
-	    // Check usecase and set csId appropriately
+	
 	    if ("invalidCsId".equalsIgnoreCase(testData.get("usecase"))) {
-	        // Possibly from testData.get("csId") instead of classRecordingPath
 	        class_Put_POJO.setCsId((int)Double.parseDouble(testData.get("csId")));  // Corrected
 	    } else {
-	        // Use the correct field for csId if valid
+	        
 	    	class_Put_POJO.setCsId(Integer.parseInt(Utils.get("csId", String.class)));
 	    }
 	}
@@ -131,9 +131,16 @@ public class ClassRequest {
 		 if ("invalidEndpoint".equalsIgnoreCase(testData.get("usecase"))) {
 	        	class_POJO.setEndpoint(testData.get("Endpoint"));  // Set endpoint in user_POJO
 	        } else {
-	        	String method = testData.get("Method");
+	        	String method = testData.get("method");
 
-	        	switch (method.toLowerCase()) {
+	        	if (method == null || method.trim().isEmpty()) {
+	        	    LoggerLoad.error("Method is missing or empty in test data.");
+	        	    throw new IllegalArgumentException("Missing method value.");
+	        	}
+
+	        	switch (method.trim().toLowerCase()) {
+
+	      
 	        	    case "post":
 	        	        class_POJO.setEndpoint(enumPackage.Endpoint.Class_POST_CreateNew.getPath());
 	        	        break;
@@ -272,7 +279,7 @@ public class ClassRequest {
 			    Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
 			    setEndpointPostClass(sheetName, testCaseID);  // You need to implement this to set your GET/POST endpoint
 
-			    // Determine the request specification based on authType from test data
+			    
 			    if ("invalid".equalsIgnoreCase(testData.get("authType"))) {
 			        requestSpecification = TestContext.getRequestSpecification("invalidRequestSpecification");
 			    } else if ("valid".equalsIgnoreCase(testData.get("authType"))) {
@@ -307,13 +314,14 @@ public class ClassRequest {
 //-------------------------------------------------------------------------//----------------------------------------------------------------------		 
 		 public void classGetByIdAndTopic(String sheetName, String testCaseID, RequestSpecification requestSpecification) throws IOException {
 			    Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
-			    setEndpointPostClass(sheetName, testCaseID);  // Implement this to set your GET/POST endpoint
+			    setEndpointPostClass(sheetName, testCaseID);  
 
 			    String IdValue = "";
 			    String usecase = testData.get("usecase");
-			    // Determine the IdValue based on the use case from test data
+			   
 			    if ("byBatchId".equalsIgnoreCase(usecase)) {
-			        IdValue = "11546";  
+			    	IdValue = Utils.get("batchId", String.class);
+			      // IdValue = "11546";  //Remove this after chaining is implemented
 			    } else if ("byinvalidBatchId".equalsIgnoreCase(usecase)) {
 			        IdValue = String.valueOf((int) Double.parseDouble(testData.get("batchId")));
 			    } else if ("byClassId".equalsIgnoreCase(usecase)) {
@@ -323,7 +331,8 @@ public class ClassRequest {
 			    } else if ("byTopic".equalsIgnoreCase(usecase) || "byinvalidTopic".equalsIgnoreCase(usecase)) {
 			        IdValue = testData.get("classTopic");
 			    } else if ("byStaffId".equalsIgnoreCase(usecase)){
-			        IdValue = "U108";
+			    	IdValue = Utils.get("UserId", String.class);
+			      //  IdValue = "U108";  //Remove this after chaining is implemented
 			    }else if("	".equalsIgnoreCase(usecase)) {
 			    	IdValue = testData.get("classStaffId");
 			    }
@@ -342,7 +351,7 @@ public class ClassRequest {
 			        throw new IllegalArgumentException("RequestSpecification cannot be null. Ensure it is properly initialized.");
 			    }
 
-			    // Perform the request based on the scenario
+			   
 			    if("invalid".equalsIgnoreCase(testData.get("Http"))) {
 			        response = given()
 			            .spec(requestSpecification)
@@ -427,11 +436,11 @@ public class ClassRequest {
 			    csId = Utils.get("csId", String.class);
 		    }
 
-		        // Making the POST request
+		       
 		        response = given()
 		            .spec(requestSpecification)
 		            .pathParam("id", csId)
-		            .body(getclassRequestBody())  
+		            .body(getclassRequestBody())  	
 		            .when()
 		            .put(getEndpoint() + "{id}");
 		            									
@@ -452,7 +461,7 @@ public class ClassRequest {
 			    classPutRequestbody(sheetName, testCaseID);
 			    setEndpointPostClass(sheetName, testCaseID);
 
-			    // Determine the request specification based on authType
+			   
 			    if ("invalid".equalsIgnoreCase(testData.get("authType"))) {
 			        requestSpecification = TestContext.getRequestSpecification("invalidRequestSpecification");
 			    } else if ("valid".equalsIgnoreCase(testData.get("authType"))) {
@@ -466,7 +475,7 @@ public class ClassRequest {
 			        throw new IllegalArgumentException("RequestSpecification cannot be null. Ensure it is properly initialized.");
 			    }
 
-			    // Determine the class ID based on the use case
+			    
 			    if ("byinvalidClassId".equalsIgnoreCase(testData.get("usecase"))) {
 			        csId = testData.get("ClassId");
 			    } else {
@@ -539,16 +548,12 @@ public class ClassRequest {
 			    List<Object> csId_list = Utils.get(key, List.class);
 
 			    if (csId_list != null && !csId_list.isEmpty()) {
-			        // Iterate over each csId in the list and delete it
 			        for (Object csId1 : csId_list) {
 			            String csId = String.valueOf(csId1);  // Convert the Object to String
 
-			            // Perform the cleanup for each csId individually
 			            deleteClassforcleanup(csId);  // Pass only one csId at a time to delete it
 			            System.out.println("Deleted csId: " + csId);
 			        }
-
-			        // After deleting all csIds, remove the list from the Utils (clean up storage)
 			        Utils.remove(key);
 			        Utils.remove("csId");
 			        System.out.println("All csIds from the list have been deleted and cleaned up from the Utils.");
@@ -561,15 +566,12 @@ public class ClassRequest {
 		 public void deleteClassforcleanup(String csId) {
 			 String endpoint = "/deleteByClass/{id}";
 			    requestspecification = TestContext.getRequestSpecification("validRequestSpecification");
-
-			    // Send DELETE request for the given csId. Ensure you're sending only one csId at a time.
 			    response = given()
 			            .spec(requestspecification)
 			            .pathParam("id", csId)  // Correctly pass one csId at a time in the path
 			            .when()
 			            .delete(endpoint);
 
-			    // Logging for debugging
 			    LoggerLoad.info("****** DELETE Request Endpoint: " + endpoint.replace("{id}", csId));
 			    LoggerLoad.info("****** Response: " + response.prettyPrint());
 			    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
