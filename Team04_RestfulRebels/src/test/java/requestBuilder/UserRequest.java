@@ -3,14 +3,19 @@ package requestBuilder;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+
+import org.testng.Assert;
+
 import static io.restassured.RestAssured.given;
 import common.ExcelReader;
 import common.LoggerLoad;
 import common.TestContext;
 import common.Utils;
+import io.restassured.path.json.JsonPath;
 import io.restassured.path.json.exception.JsonPathException;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import payload.Class_POJO;
 import payload.Program_POJO;
 import payload.User_POJO;
 import payload.User_PUT_POJO;
@@ -601,7 +606,54 @@ public class UserRequest {
 		    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
 		}
 	 	 
-	
+	 public static void validateDataUserPost(User_POJO expectedPOJO, Response response) {
+	        // Parse the response body to extract actual values
+	        JsonPath jsonPath = response.jsonPath();
+
+	       
+	        Assert.assertEquals(expectedPOJO.getUserComments(), jsonPath.getString("userComments"), "Mismatch in userComments");
+
+	        
+	        Assert.assertEquals(expectedPOJO.getUserEduPg(), jsonPath.getInt("userEduPg"), "Mismatch in userEduPg");
+
+	       
+	        Assert.assertEquals(expectedPOJO.getUserEduUg(), jsonPath.getString("userEduUg"), "Mismatch in userEduUg");
+
+	        
+	        Assert.assertEquals(expectedPOJO.getUserFirstName(), jsonPath.getString("userFirstName"), "Mismatch in userFirstName");
+
+	       
+	        Assert.assertEquals(expectedPOJO.getUserLastName(), jsonPath.getString("userLastName"), "Mismatch in userLastName");
+
+	        
+	        Assert.assertEquals(expectedPOJO.getUserLinkedinUrl(), jsonPath.getString("userLinkedinUrl"), "Mismatch in userLinkedinUrl");
+	        
+	        Assert.assertEquals(expectedPOJO.getUserLocation(), jsonPath.getString("userLocation"), "Mismatch in userLocation");
+	        
+	        Assert.assertEquals(expectedPOJO.getUserMiddleName(), jsonPath.getString("userMiddleName"), "Mismatch in userMiddleName");
+	        
+	        Assert.assertEquals(expectedPOJO.getUserPhoneNumber(), jsonPath.getString("userPhoneNumber"), "Mismatch in userPhoneNumber");
+	        
+	        Assert.assertEquals(expectedPOJO.getUserTimeZone(), jsonPath.getString("userTimeZone"), "Mismatch in userTimeZone");
+	        
+	        Assert.assertEquals(expectedPOJO.getUserVisaStatus(), jsonPath.getString("userVisaStatus"), "Mismatch in userVisaStatus");
+	        
+	        Assert.assertEquals(expectedPOJO.getUserLogin(), jsonPath.getString("userLogin"), "Mismatch in userLogin");
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+
+	     
+	    }
+	 
+	 
 	public Response getResponse() {
 		return response;
 	}
