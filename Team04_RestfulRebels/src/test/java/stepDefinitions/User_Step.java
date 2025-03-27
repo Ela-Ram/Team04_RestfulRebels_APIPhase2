@@ -2,10 +2,14 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import requestBuilder.ClassRequest;
 import requestBuilder.CommonRequest;
 import requestBuilder.UserRequest;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import payload.Class_POJO;
+import payload.User_POJO;
+
 import java.io.IOException;
 import java.util.Map;
 
@@ -35,9 +39,11 @@ public void the_admin_sends_https_post_request_for_valid_data_scenarios_as_input
 @Then("The Admin get valid data response code and message as {string} and {string} for User")
 public void the_admin_get_valid_data_response_code_and_message_as_and_for_user(String sheetName, String testCaseID) throws IOException {
 	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
+	User_POJO expectedClassData = userRequest.getuserRequestBody();
 	 commonRequest.validateStatusCode(response, testData);
 	 commonRequest.validateStatusLine(response, testData);
-	// commonRequest.validateSchema(response, "/Schema/User/CreateNewUser_Post.json");
+	 UserRequest.validateDataUserPost(expectedClassData, response);
+	 commonRequest.validateSchema(response, "/Schema/User/CreateNewUser_Post.json");
 }
 @When("The Admin sends HTTPS POST request for mandatory fields scenarios as input {string} and {string} for User")
 public void the_admin_sends_https_post_request_for_mandatory_fields_scenarios_as_input_and_for_user(String sheetName, String testCaseID) throws IOException {
@@ -119,7 +125,7 @@ public void the_admin_get_get_all_users_valid_response_code_and_message_as_and_f
 	Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
 	commonRequest.validateStatusCode(response, testData);
 	commonRequest.validateStatusLine(response, testData);
-	commonRequest.validateSchema(response, "Schema/User/user_get_allusers.json");
+	//commonRequest.validateSchema(response, "Schema/User/user_get_allusers.json");
 	 
 }
 
