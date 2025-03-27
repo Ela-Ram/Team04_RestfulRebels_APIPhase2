@@ -92,7 +92,8 @@ Feature: Class Module Functionality
       | TC_29_class_get | Get by id and topic             | class     |
       | TC_30_class_get | Get by id and topic             | class     |
 
-  @deleteclass
+
+ @deleteclass
   Scenario Outline: Delete functionality for different values for class
     Given Admin is on base url with valid auth
     When The Admin sends HTTPS Delete request for <scenario> scenarios as input "<Sheetname>" and "<TestCaseID>" for Class
@@ -104,6 +105,8 @@ Feature: Class Module Functionality
       | TC_03_class_del | invalid classId  | class     |
       | TC_01_class_del | valid classID    | class     |
 
+
+ 
   @changeStatus
   Scenario: Change the classId status to Active for chaining
     Given Admin is on base url with valid auth

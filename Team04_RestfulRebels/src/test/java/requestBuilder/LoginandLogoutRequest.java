@@ -50,18 +50,6 @@ import java.util.Map;
 	    public Login_POJO getLoginRequestBody() {  
 	        return login_POJO;
 	    }
-
-	 /*   public void setEndpoint(String sheetName, String testCaseID) throws IOException {
-	        Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
-
-	        if ("invalid Endpoint".equalsIgnoreCase(testData.get("usecase"))) {
-	            login_POJO.setEndpoint(testData.get("Endpoint"));  
-	        } else {
-	        	
-	        	String loginPost = enumPackage.Endpoint.Login_POST.getPath(); 
-	        	login_POJO.setEndpoint(loginPost); 
-	        }
-	    }*/
 	    public void setEndpoint(String sheetName, String testCaseID) throws IOException {
 	        Map<String, String> testData = ExcelReader.getTestData(sheetName, testCaseID);
 
