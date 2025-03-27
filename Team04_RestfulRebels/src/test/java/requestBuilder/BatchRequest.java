@@ -358,13 +358,55 @@ public void setEndpointPostBatch(String sheetName, String testCaseID) throws IOE
 		            .spec(requestSpecification)
 		            .when()
 		            .queryParam("searchString", searchValue)
-		            .get(getEndpoint()); // getEndpoint() should return the full URL for the GET request
+		            .get(getEndpoint()); 
 
 		    LoggerLoad.info("****** GET Request Endpoint: " + getEndpoint());
 		    LoggerLoad.info("****** Response: " + response.prettyPrint());
 		    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
 		}
 
+	 
+	 
+	 
+	 public void cleanupBatch(String key, String pathVariableName, String endpointTemplate) {
+	  	    List<Object> batchId_list = Utils.get(key, List.class);
+
+	  	    if (batchId_list != null && !batchId_list.isEmpty()) {
+	  	        for (Object item : batchId_list) {
+	  	            String identifier = String.valueOf(item);
+	  	            deleteProgramForCleanup(identifier, pathVariableName, endpointTemplate);
+	  	            LoggerLoad.info("Deleted " + pathVariableName + ": " + identifier);
+	  	        }
+
+	  	        Utils.remove(key);
+	  	        Utils.remove(pathVariableName);
+	  	        LoggerLoad.info("All " + pathVariableName + "s from the list have been deleted and cleaned up from the Utils.");
+	  	    } else {
+	  	        LoggerLoad.info("No " + pathVariableName + "s found in the list to delete.");
+	  	    }
+	  	}
+
+	  	public void deleteProgramForCleanup(String identifier, String pathVariableName, String endpoint) {
+	  	    requestspecification = TestContext.getRequestSpecification("validRequestSpecification");
+
+	  	    response = given()
+	  	            .spec(requestspecification)
+	  	            .pathParam(pathVariableName, identifier)
+	  	            .when()
+	  	            .delete(endpoint);
+
+	  	    LoggerLoad.info("****** DELETE Request Endpoint: " + endpoint.replace("{" + pathVariableName + "}", identifier));
+	  	    LoggerLoad.info("****** Response: " + response.prettyPrint());
+	  	    LoggerLoad.info("****** Status Code: " + response.getStatusCode());
+
+	  	    if (response.getStatusCode() != 200) {
+	  	        LoggerLoad.error("Failed to delete " + pathVariableName + ": " + identifier + ". Status Code: " + response.getStatusCode());
+	  	    } else {
+	  	        LoggerLoad.info("Successfully deleted " + pathVariableName + ": " + identifier);
+	  	    }
+	  	}
+	 
+	 
 	 
 }
 

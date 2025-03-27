@@ -1,0 +1,3489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="187" passed="159" failed="28" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-03-27T16:29:53 CDT" name="Default suite" finished-at="2025-03-27T16:32:28 CDT" duration-ms="155790">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2025-03-27T16:29:53 CDT" name="Default test" finished-at="2025-03-27T16:32:28 CDT" duration-ms="155790">
+      <class name="testRunner.TestRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:29:53 CDT" name="setUpClass" finished-at="2025-03-27T16:30:02 CDT" duration-ms="9148" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5fbcc71d]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:02 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:05 CDT" duration-ms="3275" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login functionality with different values from Tese data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:05 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:06 CDT" duration-ms="583" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login functionality with different values from Tese data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:06 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:07 CDT" duration-ms="978" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login functionality with different values from Tese data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:07 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:07 CDT" duration-ms="648" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login functionality with different values from Tese data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [404] but found [401]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [404] but found [401]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.LoginandLogout_Step.the_admin_get_invalid_endpoint_response_code_and_message_as_and(LoginandLogout_Step.java:104)
+at ✽.The Admin get invalid Endpoint response code and message as "login" and "TC_04_login"(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/01Login.feature:8)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:07 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:08 CDT" duration-ms="822" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login functionality with different values from Tese data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:08 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:09 CDT" duration-ms="918" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login functionality with different values from Tese data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:09 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:10 CDT" duration-ms="640" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating user with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:10 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:10 CDT" duration-ms="780" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating user with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:10 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:11 CDT" duration-ms="828" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating user with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:11 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:12 CDT" duration-ms="601" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating user with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:12 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:13 CDT" duration-ms="730" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating user with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:13 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:13 CDT" duration-ms="721" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating user with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:13 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:14 CDT" duration-ms="815" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating user with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [201] but found [400]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [201] but found [400]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.Program_Step.the_admin_get_missing_additional_field_response_code_and_message_as_and_for_program(Program_Step.java:167)
+at ✽.The Admin get missingAdditionalField response code and message as "program" and "TC_07_post_program" for Program(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/02Program.feature:11)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:14 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:15 CDT" duration-ms="809" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating user with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:15 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:16 CDT" duration-ms="814" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Put Requests with different endpoints for Program"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [200] but found [400]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [200] but found [400]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.Program_Step.the_admin_get_valid_update_program_byprogram_id_response_code_and_message_as_and_for_update_program(Program_Step.java:485)
+at ✽.The Admin get valid update program byprogramId response code and message as "program" and "TC_01_put_program" for update Program(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/02Program.feature:28)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:16 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:16 CDT" duration-ms="517" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Put Requests with different endpoints for Program"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:16 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:17 CDT" duration-ms="606" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Put Requests with different endpoints for Program"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [400] but found [401]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [400] but found [401]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.Program_Step.the_admin_get_update_by_invalid_postbody_response_code_and_message_as_and_for_update_program(Program_Step.java:523)
+at ✽.The Admin get update by invalid Postbody response code and message as "program" and "TC_03_put_program" for update Program(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/02Program.feature:28)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:17 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:18 CDT" duration-ms="817" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Put Requests with different endpoints for Program"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [400] but found [401]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [400] but found [401]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.Program_Step.the_admin_get_update_by_without_payload_response_code_and_message_as_and_for_update_program(Program_Step.java:540)
+at ✽.The Admin get update by without payload response code and message as "program" and "TC_04_put_program" for update Program(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/02Program.feature:28)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:18 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:19 CDT" duration-ms="918" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Put Requests with different endpoints for Program"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:19 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:19 CDT" duration-ms="815" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Put Requests with different endpoints for Program"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:19 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:20 CDT" duration-ms="715" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Put Requests with different endpoints for Program"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:20 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:21 CDT" duration-ms="721" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Put Requests with different endpoints for Program"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:21 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:22 CDT" duration-ms="610" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Put Requests with different endpoints for Program"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:22 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:22 CDT" duration-ms="507" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Put Requests with different endpoints for Program"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:22 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:22 CDT" duration-ms="432" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Put Requests with different endpoints for Program"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:22 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:23 CDT" duration-ms="341" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Put Requests with different endpoints for Program"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:23 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:23 CDT" duration-ms="522" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Put Requests with different endpoints for Program"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:23 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:24 CDT" duration-ms="912" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get Requests with different endpoints for Program valid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:24 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:25 CDT" duration-ms="1055" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get Requests with different endpoints for Program valid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:25 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:26 CDT" duration-ms="364" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get Requests with different endpoints for Program valid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:26 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:26 CDT" duration-ms="525" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get Requests with different endpoints for Program invalid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:26 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:27 CDT" duration-ms="527" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get Requests with different endpoints for Program invalid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:27 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:27 CDT" duration-ms="639" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get Requests with different endpoints for Program invalid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:27 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:28 CDT" duration-ms="365" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get Requests with different endpoints for Program invalid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:28 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:28 CDT" duration-ms="470" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get Requests with different endpoints for Program invalid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:28 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:29 CDT" duration-ms="475" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get Requests with different endpoints for Program invalid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Program Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:29 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:29 CDT" duration-ms="402" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating batch with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:29 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:30 CDT" duration-ms="486" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating batch with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [400] but found [201]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [400] but found [201]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.Batch_Step.the_admin_get_batch_existingbatchname_response_code_and_message_as_and(Batch_Step.java:68)
+at ✽.The Admin get Batch  existingbatchname response code and message as "batch" and "TC_02_batch"(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/03Batch.feature:11)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:30 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:30 CDT" duration-ms="360" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating batch with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:30 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:30 CDT" duration-ms="316" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating batch with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:30 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:31 CDT" duration-ms="353" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating batch with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:31 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:31 CDT" duration-ms="292" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating batch with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:31 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:31 CDT" duration-ms="524" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating batch with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:31 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:38 CDT" duration-ms="6515" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get all batches from the database"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:38 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:38 CDT" duration-ms="551" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get all batches from the database"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:38 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:39 CDT" duration-ms="934" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get all batches from the database"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:39 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:40 CDT" duration-ms="328" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get all batches by Batchid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:40 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:40 CDT" duration-ms="322" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get all batches by Batchid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:40 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:40 CDT" duration-ms="322" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get all batches by Batchid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:40 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:41 CDT" duration-ms="525" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get all batches by Batchid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:41 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:41 CDT" duration-ms="461" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get all batches by batchname"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:41 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:42 CDT" duration-ms="356" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get all batches by batchname"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:42 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:42 CDT" duration-ms="332" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get all batches by batchname"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:42 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:43 CDT" duration-ms="481" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get all batches by batchname"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:43 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:43 CDT" duration-ms="320" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get batches by ProgramID"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:43 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:43 CDT" duration-ms="508" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get batches by ProgramID"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [404] but found [200]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [404] but found [200]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.Batch_Step.the_admin_get_batchby_program_id_retrievethebatchidbyinactiveprogramid_response_code_and_message_as_and(Batch_Step.java:356)
+at ✽.The Admin get BatchbyProgramId  retrievethebatchidbyinactiveprogramid response code and message as "batch" and "TC_20_batch"(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/03Batch.feature:65)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:43 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:44 CDT" duration-ms="446" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get batches by ProgramID"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:44 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:44 CDT" duration-ms="321" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get batches by ProgramID"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:44 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:44 CDT" duration-ms="311" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Deleting the batch by batch id"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:44 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:45 CDT" duration-ms="324" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Deleting the batch by batch id"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:45 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:45 CDT" duration-ms="297" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Deleting the batch by batch id"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:45 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:45 CDT" duration-ms="341" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Update the batchby Batchid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:45 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:46 CDT" duration-ms="321" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Update the batchby Batchid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:46 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:46 CDT" duration-ms="307" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Update the batchby Batchid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:46 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:47 CDT" duration-ms="480" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Update the batchby Batchid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:47 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:47 CDT" duration-ms="485" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Update the batchby Batchid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:47 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:47 CDT" duration-ms="450" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Update the batchby Batchid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:47 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:48 CDT" duration-ms="365" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Update the batchby Batchid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:48 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:48 CDT" duration-ms="415" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Update the batchby Batchid"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Batch Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:48 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:49 CDT" duration-ms="732" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating User with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Mismatch in userComments expected [null] but found [nnhhh]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Mismatch in userComments expected [null] but found [nnhhh]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at requestBuilder.UserRequest.validateDataUserPost(UserRequest.java:658)
+at stepDefinitions.User_Step.the_admin_get_valid_data_response_code_and_message_as_and_for_user(User_Step.java:45)
+at ✽.The Admin get valid data response code and message as "user" and "TC_01_user" for User(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/04User.feature:11)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:49 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:49 CDT" duration-ms="321" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating User with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [201] but found [400]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [201] but found [400]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.User_Step.the_admin_get_mandatory_fields_response_code_and_message_as_and_for_user(User_Step.java:57)
+at ✽.The Admin get mandatory fields response code and message as "user" and "TC_02_user" for User(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/04User.feature:11)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:49 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:50 CDT" duration-ms="597" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating User with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:50 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:51 CDT" duration-ms="607" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating User with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:51 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:51 CDT" duration-ms="820" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating User with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:51 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:54 CDT" duration-ms="3009" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:54 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:57 CDT" duration-ms="2256" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:57 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:57 CDT" duration-ms="658" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:57 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:58 CDT" duration-ms="912" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:58 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:30:59 CDT" duration-ms="511" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:30:59 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:04 CDT" duration-ms="5120" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:04 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:04 CDT" duration-ms="510" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:04 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:05 CDT" duration-ms="511" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:05 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:05 CDT" duration-ms="512" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:05 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:07 CDT" duration-ms="1922" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:07 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:10 CDT" duration-ms="2936" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:10 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:11 CDT" duration-ms="963" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [200] but found [400]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [200] but found [400]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.User_Step.the_admin_get_update_user_by_userid_valid_response_code_and_message_as_and_for_user(User_Step.java:273)
+at ✽.The Admin get update user by userid valid response code and message as "user" and "TC_17_user" for User(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/04User.feature:45)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:11 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:12 CDT" duration-ms="832" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:12 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:13 CDT" duration-ms="618" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:13 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:14 CDT" duration-ms="921" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [200] but found [400]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [200] but found [400]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.User_Step.the_admin_get_update_userrole_status_valid_response_code_and_message_as_and_for_user(User_Step.java:310)
+at ✽.The Admin get update userrole status valid response code and message as "user" and "TC_20_user" for User(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/04User.feature:45)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:14 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:14 CDT" duration-ms="29" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.ClassCastException">
+            <message>
+              <![CDATA[Cannot cast java.lang.String to java.lang.Integer]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.ClassCastException: Cannot cast java.lang.String to java.lang.Integer
+at java.base/java.lang.Class.cast(Class.java:4139)
+at common.Utils.get(Utils.java:37)
+at requestBuilder.UserRequest.userPutPgmBatchRequestBody(UserRequest.java:160)
+at requestBuilder.UserRequest.updateUserByPgmBatch(UserRequest.java:552)
+at stepDefinitions.User_Step.the_admin_sends_https_get_request_for_assign_user_to_pgm_batch_valid_scenarios_as_input_and_for_user(User_Step.java:316)
+at ✽.The Admin sends HTTPS Put request for assign user to pgm batch valid scenarios as input "user" and "TC_21_user" for User(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/04User.feature:44)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.ClassCastException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:14 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:14 CDT" duration-ms="28" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.ClassCastException">
+            <message>
+              <![CDATA[Cannot cast java.lang.String to java.lang.Integer]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.ClassCastException: Cannot cast java.lang.String to java.lang.Integer
+at java.base/java.lang.Class.cast(Class.java:4139)
+at common.Utils.get(Utils.java:37)
+at requestBuilder.UserRequest.userPutPgmBatchRequestBody(UserRequest.java:160)
+at requestBuilder.UserRequest.updateUserByPgmBatch(UserRequest.java:552)
+at stepDefinitions.User_Step.the_admin_sends_https_get_request_for_assign_user_to_pgm_batch_invalid_scenarios_as_input_and_for_user(User_Step.java:330)
+at ✽.The Admin sends HTTPS Put request for assign user to pgm batch invalid scenarios as input "user" and "TC_22_user" for User(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/04User.feature:44)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.ClassCastException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:14 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:14 CDT" duration-ms="28" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.ClassCastException">
+            <message>
+              <![CDATA[Cannot cast java.lang.String to java.lang.Integer]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.ClassCastException: Cannot cast java.lang.String to java.lang.Integer
+at java.base/java.lang.Class.cast(Class.java:4139)
+at common.Utils.get(Utils.java:37)
+at requestBuilder.UserRequest.userPutPgmBatchRequestBody(UserRequest.java:160)
+at requestBuilder.UserRequest.updateUserByPgmBatch(UserRequest.java:552)
+at stepDefinitions.User_Step.the_admin_sends_https_put_request_for_assign_user_to_pgm_batch_missing_required_field_scenarios_as_input_and_for_user(User_Step.java:343)
+at ✽.The Admin sends HTTPS Put request for assign user to pgm batch missing required field scenarios as input "user" and "TC_23_user" for User(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/04User.feature:44)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.ClassCastException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:14 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:14 CDT" duration-ms="723" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for User"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [200] but found [400]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [200] but found [400]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.User_Step.the_admin_get_update_user_login_status_valid_response_code_and_message_as_and_for_user(User_Step.java:394)
+at ✽.The Admin get update user login valid response code and message as "user" and "TC_24_user" for User(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/04User.feature:45)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:14 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:15 CDT" duration-ms="1126" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:15 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:16 CDT" duration-ms="812" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:16 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:17 CDT" duration-ms="739" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:17 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:18 CDT" duration-ms="716" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [400] but found [201]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [400] but found [201]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.Class_Step.the_admin_get_invalid_data_response_code_and_message_as_and_for_class(Class_Step.java:105)
+at ✽.The Admin get invalid data response code and message as "class" and "TC_04_class_post" for Class(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/05Class.feature:11)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:18 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:19 CDT" duration-ms="827" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [400] but found [201]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [400] but found [201]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.Class_Step.the_admin_get_existing_class_topic_response_code_and_message_as_and_for_class(Class_Step.java:124)
+at ✽.The Admin get existing class topic response code and message as "class" and "TC_05_class_post" for Class(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/05Class.feature:11)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:19 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:20 CDT" duration-ms="1094" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:20 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:21 CDT" duration-ms="928" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Creating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:21 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:21 CDT" duration-ms="682" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Updating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:21 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:22 CDT" duration-ms="846" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Updating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:22 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:23 CDT" duration-ms="615" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Updating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [400] but found [401]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [400] but found [401]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.Class_Step.the_admin_get_additional_fields_response_code_and_message_as_and_for_class(Class_Step.java:87)
+at ✽.The Admin get additional fields response code and message as "class" and "TC_03_class_put" for Class(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/05Class.feature:28)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:23 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:23 CDT" duration-ms="511" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Updating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:23 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:24 CDT" duration-ms="611" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Updating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [400] but found [200]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [400] but found [200]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.Class_Step.the_admin_get_invalid_topic_response_code_and_message_as_and_for_class(Class_Step.java:223)
+at ✽.The Admin get invalid Topic response code and message as "class" and "TC_05_class_put" for Class(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/05Class.feature:28)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:24 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:25 CDT" duration-ms="713" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Updating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:25 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:25 CDT" duration-ms="612" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Updating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:25 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:26 CDT" duration-ms="617" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Updating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:26 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:27 CDT" duration-ms="711" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Updating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:27 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:27 CDT" duration-ms="469" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Updating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:27 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:28 CDT" duration-ms="860" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Updating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [400] but found [200]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [400] but found [200]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.Class_Step.the_admin_get_invalidData_allrecordings_response_code_and_message_as_and_for_class(Class_Step.java:303)
+at ✽.The Admin get invalidData allrecordings response code and message as "class" and "TC_11_classAllRecord_put" for Class(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/05Class.feature:28)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:28 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:28 CDT" duration-ms="514" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Updating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:28 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:29 CDT" duration-ms="612" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Updating Class with different values from Test data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:29 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:31 CDT" duration-ms="1903" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:31 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:32 CDT" duration-ms="662" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:32 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:33 CDT" duration-ms="945" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:33 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:33 CDT" duration-ms="885" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:33 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:34 CDT" duration-ms="623" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:34 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:34 CDT" duration-ms="27" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.IllegalArgumentException">
+            <message>
+              <![CDATA[parameterValue cannot be null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalArgumentException: parameterValue cannot be null
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
+at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:60)
+at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:86)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:57)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+at io.restassured.internal.common.assertion.AssertParameter.notNull(AssertParameter.groovy:26)
+at io.restassured.internal.common.assertion.AssertParameter$notNull.callStatic(Unknown Source)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallStatic(CallSiteArray.java:53)
+at io.restassured.internal.common.assertion.AssertParameter$notNull.callStatic(Unknown Source)
+at io.restassured.internal.RequestSpecificationImpl.pathParam(RequestSpecificationImpl.groovy:515)
+at requestBuilder.ClassRequest.classGetByIdAndTopic(ClassRequest.java:364)
+at stepDefinitions.Class_Step.the_admin_sends_https_get_request_for_get_class_by_staff_id_valid_scenarios_as_input_and_for_class(Class_Step.java:440)
+at ✽.The Admin sends HTTPS Get request for Get class by staffId valid scenarios as input "class" and "TC_14_class_get" for Class(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/05Class.feature:50)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalArgumentException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:34 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:36 CDT" duration-ms="1899" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:36 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:37 CDT" duration-ms="714" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:37 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:37 CDT" duration-ms="614" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:37 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:38 CDT" duration-ms="917" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:38 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:39 CDT" duration-ms="614" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:39 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:39 CDT" duration-ms="613" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:39 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:40 CDT" duration-ms="507" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:40 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:40 CDT" duration-ms="512" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:40 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:41 CDT" duration-ms="819" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:41 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:42 CDT" duration-ms="613" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:42 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:43 CDT" duration-ms="921" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:43 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:44 CDT" duration-ms="1016" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:44 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:45 CDT" duration-ms="719" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:45 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:45 CDT" duration-ms="720" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:45 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:46 CDT" duration-ms="614" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:46 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:46 CDT" duration-ms="18" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.IllegalArgumentException">
+            <message>
+              <![CDATA[parameterValue cannot be null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalArgumentException: parameterValue cannot be null
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
+at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:60)
+at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:86)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+at io.restassured.internal.common.assertion.AssertParameter.notNull(AssertParameter.groovy:26)
+at io.restassured.internal.common.assertion.AssertParameter$notNull.callStatic(Unknown Source)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallStatic(CallSiteArray.java:53)
+at io.restassured.internal.common.assertion.AssertParameter$notNull.callStatic(Unknown Source)
+at io.restassured.internal.RequestSpecificationImpl.pathParam(RequestSpecificationImpl.groovy:515)
+at requestBuilder.ClassRequest.classGetByIdAndTopic(ClassRequest.java:358)
+at stepDefinitions.Class_Step.the_admin_sends_https_get_request_for_scenarios_as_input_and_for_class_invalid(Class_Step.java:502)
+at ✽.The Admin sends HTTPS Get request for scenarios as input "class" and "TC_22_class_get" for Class invalid(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/05Class.feature:67)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalArgumentException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:46 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:47 CDT" duration-ms="688" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:47 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:47 CDT" duration-ms="616" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:47 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:48 CDT" duration-ms="510" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:48 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:48 CDT" duration-ms="506" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:48 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:49 CDT" duration-ms="621" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:49 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:49 CDT" duration-ms="609" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:49 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:50 CDT" duration-ms="615" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:50 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:51 CDT" duration-ms="512" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get functionality for different endpoints for class invalid scenarios"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:51 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:51 CDT" duration-ms="608" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Delete functionality for different values for class"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:51 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:52 CDT" duration-ms="821" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Delete functionality for different values for class"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:52 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:53 CDT" duration-ms="618" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Delete functionality for different values for class"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:53 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:54 CDT" duration-ms="927" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Change the classId status to Active for chaining"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Class Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:54 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:54 CDT" duration-ms="331" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating valid logout with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:54 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:55 CDT" duration-ms="985" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:55 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:55 CDT" duration-ms="510" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:55 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:56 CDT" duration-ms="355" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:56 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:56 CDT" duration-ms="393" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:56 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:57 CDT" duration-ms="541" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:57 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:57 CDT" duration-ms="12" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.IllegalArgumentException">
+            <message>
+              <![CDATA[parameterValue cannot be null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalArgumentException: parameterValue cannot be null
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
+at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:60)
+at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:86)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+at io.restassured.internal.common.assertion.AssertParameter.notNull(AssertParameter.groovy:26)
+at io.restassured.internal.common.assertion.AssertParameter$notNull.callStatic(Unknown Source)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallStatic(CallSiteArray.java:53)
+at io.restassured.internal.common.assertion.AssertParameter$notNull.callStatic(Unknown Source)
+at io.restassured.internal.RequestSpecificationImpl.pathParam(RequestSpecificationImpl.groovy:515)
+at requestBuilder.ClassRequest.classGetByIdAndTopic(ClassRequest.java:364)
+at stepDefinitions.Class_Step.the_admin_sends_class_get_allclasses_bystaffid_request_with_no_auth_as_input_and_for_class(Class_Step.java:612)
+at ✽.The Admin sends class_get_allclasses_bystaffid request with no auth as input "class" and "TC_06_class_noAuth" for class(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/06NoauthandInvalidURL.feature:19)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalArgumentException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:57 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:57 CDT" duration-ms="588" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:57 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:58 CDT" duration-ms="459" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:58 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:58 CDT" duration-ms="487" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:58 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:31:59 CDT" duration-ms="846" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:31:59 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:00 CDT" duration-ms="928" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:00 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:01 CDT" duration-ms="876" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:01 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:03 CDT" duration-ms="1671" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating LMS API using CRUD operations with Invalid URL"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:03 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:03 CDT" duration-ms="825" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:03 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:04 CDT" duration-ms="806" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:04 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:05 CDT" duration-ms="931" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:05 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:06 CDT" duration-ms="612" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:06 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:07 CDT" duration-ms="923" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:07 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:07 CDT" duration-ms="803" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:07 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:08 CDT" duration-ms="541" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:08 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:09 CDT" duration-ms="901" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:09 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:10 CDT" duration-ms="923" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:10 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:10 CDT" duration-ms="507" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:10 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:11 CDT" duration-ms="799" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:11 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:12 CDT" duration-ms="1046" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:12 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:13 CDT" duration-ms="689" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:13 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:14 CDT" duration-ms="860" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [401] but found [404]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [401] but found [404]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.Program_Step.the_admin_gets_response_code_and_message_as_and_for_program(Program_Step.java:686)
+at ✽.The Admin gets response code and message as "program" and "TC_07_program_noAuth" for program(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/06NoauthandInvalidURL.feature:69)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:14 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:15 CDT" duration-ms="799" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating different Crud Operations with no auth"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [401] but found [200]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [401] but found [200]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.Program_Step.the_admin_gets_response_code_and_message_as_and_for_program(Program_Step.java:686)
+at ✽.The Admin gets response code and message as "program" and "TC_08_program_noAuth" for program(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/06NoauthandInvalidURL.feature:69)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:15 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:15 CDT" duration-ms="17" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating LMS API using CRUD operations with Invalid URL"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Scenarios with No auth and Invalid Url"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "String.trim()" because the return value of "java.util.Map.get(Object)" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "String.trim()" because the return value of "java.util.Map.get(Object)" is null
+at requestBuilder.ProgramRequest.setEndpointProgram(ProgramRequest.java:65)
+at requestBuilder.ProgramRequest.programPost(ProgramRequest.java:119)
+at stepDefinitions.Program_Step.the_admin_sends_createclass_request_with_invalid_url_as_input_and_for_program(Program_Step.java:746)
+at ✽.The Admin sends createclass request with invalid url as input "class" and "TC_01_program_InvalidURL" for program(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/06NoauthandInvalidURL.feature:85)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:15 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:17 CDT" duration-ms="2555" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Cleanup all the ClassId Generated"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:17 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:18 CDT" duration-ms="608" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Delete Requests with different endpoints for Program"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Status code mismatch! expected [200] but found [404]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Status code mismatch! expected [200] but found [404]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at requestBuilder.CommonRequest.validateStatusCode(CommonRequest.java:70)
+at stepDefinitions.Program_Step.the_admin_get_response_code_and_message_as_and_for_delete_program(Program_Step.java:631)
+at ✽.The Admin get response code and message as "program" and "TC_03_delete_program" for delete Program(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/07Cleanup.feature:20)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:18 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:19 CDT" duration-ms="1013" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Delete Requests with different endpoints for Program"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:19 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:20 CDT" duration-ms="848" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Cleanup all the ProgramId Generated"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:20 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:20 CDT" duration-ms="793" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Delete functionality for different values for class"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:20 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:21 CDT" duration-ms="558" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Delete functionality for different values for class"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "java.lang.CharSequence.toString()" because "replacement" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "java.lang.CharSequence.toString()" because "replacement" is null
+at java.base/java.lang.String.replace(String.java:3177)
+at requestBuilder.UserRequest.deleteUser(UserRequest.java:646)
+at stepDefinitions.User_Step.the_admin_sends_https_delete_request_for_invalid_user_id_scenarios_as_input_and_for_class(User_Step.java:374)
+at ✽.The Admin sends HTTPS Delete request for invalid userID scenarios as input "user" and "TC_02_user_del" for Class(file:///C:/Users/ems11/Desktop/ElamathiProjects/Team04_RestfulRebels_APIPhase2/Team04_RestfulRebels/src/test/resources/features/07Cleanup.feature:36)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:21 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:22 CDT" duration-ms="1395" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Cleanup all the UserId Generated"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:22 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:26 CDT" duration-ms="4095" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Cleanup all the UserId Generated"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Module Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:26 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:27 CDT" duration-ms="600" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Logout functionality with different values from Tese data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Logout Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:27 CDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-27T16:32:28 CDT" duration-ms="518" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validating valid logout"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Logout Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:testRunner.TestRunner@581ac8a8]" started-at="2025-03-27T16:32:28 CDT" name="tearDownClass" finished-at="2025-03-27T16:32:28 CDT" duration-ms="842" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- testRunner.TestRunner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

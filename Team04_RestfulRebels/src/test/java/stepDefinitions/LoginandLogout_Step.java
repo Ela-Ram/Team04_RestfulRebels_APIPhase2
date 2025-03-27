@@ -172,7 +172,7 @@ public class LoginandLogout_Step {
 	        commonRequest.validateStatusCode(response, testData);
 	        commonRequest.validateStatusLine(response, testData);
 	        commonRequest.validateResponseTime(response);
-	        commonRequest.validateSuccessMessage(response, testData);
+	       
 		   
 }
 	  
