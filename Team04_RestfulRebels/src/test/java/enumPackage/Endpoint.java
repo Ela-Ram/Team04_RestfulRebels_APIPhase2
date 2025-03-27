@@ -44,9 +44,9 @@ public enum Endpoint {
 	User_GET_UserBy_RoleId("/users/roles/R02"),
 	User_GET_UserByRoleId_V2("/v2/users"),
 	User_PUT_byUserId("/users/"),
-	User_PUT_byRoleId("/users/"),
+	User_PUT_byRoleId("/users/roleId"),
 	User_PUT_byUserRolePgmBatchStatus("/users/roleProgramBatchStatus/"),
-	User_PUT_UpdateUserLoginStatus("/users/userLogin/{userId}"),
+	User_PUT_UpdateUserLoginStatus("/users/userLogin/"),
 	User_DELETE_ByUserId("/users/");
 	
     private final String path;
